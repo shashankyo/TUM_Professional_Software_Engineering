@@ -23,5 +23,10 @@ namespace ProSE
             return XX;
 
         }
+         //public static bool TryParseComplex(string userInput , out Complex complexUserInput)
+
+        
+        // private static bool IsValidComplex(string userInput , out double real , out double imaginary)
+        
     }
 }
