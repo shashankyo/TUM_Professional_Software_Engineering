@@ -16,8 +16,8 @@ namespace ProSE_Assignment1
         // public const char gridChar= '.';
         public static void Main(string[] args)
         {
-            Rectangle rec1 = new Rectangle(2,5,2,5);
-            rec1.Visualize(9,9);
+            Rectangle rec1 = new Rectangle(20,50,20,50);
+            rec1.Visualize(50,40);
 
         }
 
