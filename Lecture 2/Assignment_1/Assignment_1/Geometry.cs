@@ -126,7 +126,7 @@ namespace ProSE_Assignment1
         }
 
     }
-public class Union : Operation
+    public class Union : Operation
     {
         public ImplicitGeometry operand1;
         public ImplicitGeometry operand2;
