@@ -38,12 +38,15 @@ namespace ProSE_Assignment1
                         isInside = IsInside(ref x, ref y);
                         if (isInside == true)
                         {
-                            //Console.Write($"({x},{y})");
-                            Console.Write(trueGridChar);
+                            Console.Write($"({x},{y})");
+                            //Console.BackgroundColor = ConsoleColor.Blue;
+                            //Console.ForegroundColor = ConsoleColor.Blue;
+                            //Console.Write(trueGridChar);
                         }
                         else
                         {
                             //Console.Write($"({x},{y})");
+                            //Console.BackgroundColor = ConsoleColor.White;
                             Console.Write(falseGridChar);
                         }
                     }
@@ -54,16 +57,21 @@ namespace ProSE_Assignment1
                     {
                         if (isInside == true)
                         {
+                            //Console.BackgroundColor = ConsoleColor.Blue;
+                            //Console.ForegroundColor = ConsoleColor.Blue;
                             Console.Write(trueGridChar);
+                            //Console.BackgroundColor = ConsoleColor.White;
                             isInside = false;
                         }
                         else
                         {
                             //Console.Write($"({x},{y})");
+                            //Console.BackgroundColor = ConsoleColor.White;
                             Console.Write(falseGridChar);
                         }
                     }
                 }
+                //Console.BackgroundColor = ConsoleColor.White;
                 Console.Write('\n');
             }
         }
@@ -115,30 +123,36 @@ namespace ProSE_Assignment1
         }
     }
 
-//    public class Circle : ImplicitGeometry
-//    {
-//        public double xCenter;
-//        public double yCenter;
-//        public double radius;
+    public class Circle : ImplicitGeometry
+    {
+        public double xCenter;
+        public double yCenter;
+        public double radius;
 
-//        public Circle(double xCenter, double yCenter, double radius)
-//        {
-//            this.xCenter = xCenter;
-//            this.yCenter = yCenter;
-//            this.radius = radius;
-//        }
-//        public override bool IsInside(ref double x, ref double y)
-//        {
-//            if (Math.Sqrt((x - xCenter) + (y - yCenter)) < radius)
-//            {
-//                return true;
-//            }
-//            else
-//            {
-//                return false;
-//            }
-//        }
-//    }   
+        public Circle(double xCenter, double yCenter, double radius)
+        {
+            this.xCenter = xCenter;
+            this.yCenter = yCenter;
+            this.radius = radius;
+        }
+        public override bool IsInside(ref double y)
+        {
+
+                return true;
+            
+        }
+        public override bool IsInside(ref double x, ref double y)
+        {
+            if ((x - center_x) ^ 2 + (y - center_y) ^ 2 < radius ^ 2)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
 
     public abstract class Operation : ImplicitGeometry
     {
@@ -177,15 +191,64 @@ public class Union : Operation
         }
         public override bool IsInside(ref double y)
         {
+            
             bool insideOperand1 = operand1.IsInside(ref y);
             bool insideOperand2 = operand2.IsInside(ref y);
-            return insideOperand1 | insideOperand2;
+            return insideOperand1 || insideOperand2;
         }
         public override bool IsInside(ref double x, ref double y)
         {
             bool insideOperand1 = operand1.IsInside(ref x, ref y);
             bool insideOperand2 = operand2.IsInside(ref x, ref y);
             return insideOperand1 | insideOperand2;
+        }
+    }
+    public class Difference : Operation
+    {
+        public ImplicitGeometry operand1;
+        public ImplicitGeometry operand2;
+        public Difference(ref Rectangle operand1, ref Rectangle operand2) : base(ref operand1, ref operand2)
+        {
+            this.operand1 = operand1;
+            this.operand2 = operand2;
+        }
+
+        public override bool IsInside(ref double y)
+        {
+
+            bool insideOperand1 = operand1.IsInside(ref y);
+            bool outsideOperand2 = !operand2.IsInside(ref y);
+            return insideOperand1 || outsideOperand2;
+        }
+        public override bool IsInside(ref double x, ref double y)
+        {
+            bool insideOperand1 = operand1.IsInside(ref x, ref y);
+            bool outsideOperand2 = operand2.IsInside(ref x, ref y);
+            return insideOperand1 | outsideOperand2;
+        }
+    }
+    public class Intersection : Operation
+    {
+        public ImplicitGeometry operand1;
+        public ImplicitGeometry operand2;
+        public Intersection(ref Rectangle operand1, ref Rectangle operand2) : base(ref operand1, ref operand2)
+        {
+            this.operand1 = operand1;
+            this.operand2 = operand2;
+        }
+
+        public override bool IsInside(ref double y)
+        {
+
+            bool insideOperand1 = operand1.IsInside(ref y);
+            bool insideOperand2 = operand2.IsInside(ref y);
+            return insideOperand1 && insideOperand2;
+        }
+        public override bool IsInside(ref double x, ref double y)
+        {
+            bool insideOperand1 = operand1.IsInside(ref x, ref y);
+            bool insideOperand2 = operand2.IsInside(ref x, ref y);
+            return insideOperand1 && insideOperand2;
         }
     }
 }
