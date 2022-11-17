@@ -10,6 +10,8 @@ namespace ProSE_Lecture3
     public interface IVector
     {
     public double GetNorm();
+
+    //blic double CalculateDotProduct();
     public void PrintNorm();
     }
     public class Vector2D : IVector
@@ -32,7 +34,12 @@ namespace ProSE_Lecture3
         {
             Console.WriteLine(GetNorm());
         }
+        public double CalculateDotProduct(Vector2D otherVector)
+        {
+            return this.x * otherVector.x + this.y * otherVector.y;
+        }
     }
+
 
     public class Vector3D : IVector
     {
@@ -53,6 +60,11 @@ namespace ProSE_Lecture3
         public void PrintNorm()
         {
             Console.WriteLine(GetNorm());
+        }
+        public double CalculateDotProduct(Vector3D otherVector)
+        {
+           return this.x * otherVector.x + this.y * otherVector.y + this.z * otherVector.z;
+
         }
 
     }
