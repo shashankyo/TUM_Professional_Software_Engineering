@@ -11,22 +11,22 @@ namespace ProSE_Lecture3
     {
     public double GetNorm();
 
-    //blic double CalculateDotProduct();
-    public void PrintNorm();
+        //public double CalculateDotProduct();
+        public void PrintNorm();
     }
-    public class Vector2D : IVector
+    public class Vector2D<T> :IVector
     {
-        public double x;
-        public double y;
+        public T x;
+        public T y;
 
-        public Vector2D(double x, double y)
+        public Vector2D(T x, T y)
         {
             this.x = x;
             this.y = y;
-
         }
     public double GetNorm()
         {
+            var x = Conver
             double value = Math.Sqrt(x * x + y * y);
             return value;
         }
@@ -34,13 +34,11 @@ namespace ProSE_Lecture3
         {
             Console.WriteLine(GetNorm());
         }
-        public double CalculateDotProduct(Vector2D otherVector)
+        public double CalculateDotProduct(Vector2D<T> otherVector)
         {
             return this.x * otherVector.x + this.y * otherVector.y;
         }
     }
-
-
     public class Vector3D : IVector
     {
         double x;

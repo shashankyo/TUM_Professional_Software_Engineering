@@ -18,7 +18,7 @@ namespace ProSE_Lecture3
         public void Vector2d_Norm_3_4_is_5()
         {
             // 2d Vector with 3,4 is 5?
-            Vector2D firstvector = new Vector2D(3, 4);
+            Vector2D<T> firstvector = new Vector2D<T> (3, 4);
 
 
             Assert.That(firstvector.GetNorm(), Is.EqualTo(5));
