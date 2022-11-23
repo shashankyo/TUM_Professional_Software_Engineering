@@ -3,9 +3,13 @@ using System;
 namespace CodeSnippets{
     
     public class CodeSnippets{
-
+        
         /// <summary>
+<<<<<<< HEAD
         /// checks if the given string and its reversed version are the same, returns the result as bool
+=======
+        /// Describe the function here
+>>>>>>> parent of a3f8691 (Assignment 2 Start)
         /// </summary>
         static bool function1(string pattern) {
             var parts = pattern.ToCharArray();
@@ -18,17 +22,18 @@ namespace CodeSnippets{
         
         
         /// <summary>
+<<<<<<< HEAD
         /// sorts a given array of integers in ascending order
+=======
+        /// Describe the function here.
+>>>>>>> parent of a3f8691 (Assignment 2 Start)
         /// </summary>
         public static int function2(int[] numbers){
-            for (var h = numbers.Length / 2; h > 0; h /= 2)
-            {
-                for (var i = h; i < numbers.Length; i += 1)
-                {
+            for (var h = numbers.Length / 2; h > 0; h /= 2){
+                for (var i = h; i < numbers.Length; i += 1){
                     var temp = numbers[i];
                     int t;
-                    for (t = i; t >= h && numbers[t - h] > temp; t -= h)
-                    {
+                    for (t = i; t >= h && numbers[t - h] > temp; t -= h){
                         numbers[t] = numbers[t - h];
                     }
                     numbers[t] = temp;
