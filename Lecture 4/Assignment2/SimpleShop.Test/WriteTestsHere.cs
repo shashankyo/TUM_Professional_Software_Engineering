@@ -17,7 +17,9 @@ namespace SimpleShop.Test
         [Test]
         [Category("Keyword")]
         public void Parsing_KeywordStartTag_AddedBraces(){
-            Assert.Fail();
+
+            Keyword newkeyword = new Keyword("TestKeyword");
+            Assert.That(newkeyword.GetStart(),Is.EqualTo("<TestKeyword>"));
         }
         
         /// <summary>
@@ -27,7 +29,9 @@ namespace SimpleShop.Test
         [Test]
         [Category("Keyword")]
         public void Parsing_KeywordEndTag_AddedSlashAndBraces(){
-            Assert.Fail();
+
+            Keyword newkeyword = new Keyword("TestKeyword");
+            Assert.That(newkeyword.GetEnd(), Is.EqualTo("</TestKeyword>"));
         }
         
         /// <summary>
@@ -37,7 +41,17 @@ namespace SimpleShop.Test
         [Test]
         [Category("ShopParser")]
         public void Parsing_SetKeywords_OrderOfKeywordsIsCorrect(){
-            Assert.Fail();
+
+            Keyword[] testKeywordArray = new Keyword[2];
+            Keyword newkeyword = new Keyword("TestKeyword");
+            Keyword newkeyword2 = new Keyword("KorayKeyword");
+
+            testKeywordArray[0] = newkeyword;
+            testKeywordArray[1] = newkeyword2;
+
+            ShopParser testParser = new ShopParser();
+            testParser.SetKeywords(testKeywordArray);
+            Assert.That(testParser.GetKeywords, Is.EqualTo(testKeywordArray));
         }
         
         /// <summary>
