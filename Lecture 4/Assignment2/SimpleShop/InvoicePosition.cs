@@ -16,5 +16,6 @@ namespace SimpleShop{
         public static InvoicePosition CreateFromPairs(KeywordPair[] pairs){
             return null; 
         }
+
     }
 }

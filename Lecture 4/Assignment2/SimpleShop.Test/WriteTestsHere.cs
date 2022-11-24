@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using SimpleShop;
+using System.Security.Cryptography;
 // Remember [UnitOfWork_StateUnderTest_ExpectedBehaviour]
 
 namespace SimpleShop.Test
@@ -62,7 +63,22 @@ namespace SimpleShop.Test
         [Category("ShopParser")]
         public void ShopParser_SetKeyword_Typ()
         {
-            Assert.Fail();
+            Keyword[] testKeywordArray = new Keyword[3];
+            Keyword newKeyword = new Keyword("TestKeyword", KeywordTypes.String);
+            Keyword newKeyword2 = new Keyword("3", KeywordTypes.Int);
+            Keyword newKeyword3 = new Keyword("2,11", KeywordTypes.Decimal);
+
+            testKeywordArray[0] = newKeyword;
+            testKeywordArray[1] = newKeyword2;
+            testKeywordArray[2] = newKeyword3;
+            ShopParser testParser = new ShopParser();
+            testParser.SetKeywords(testKeywordArray);
+            var a = testParser.GetKeywords(); // to do. naming will be corrected
+            
+            Assert.That(a[0].WhichType(),Is.EqualTo(KeywordTypes.String));
+            Assert.That(a[1].WhichType(), Is.EqualTo(KeywordTypes.Int));
+            Assert.That(a[2].WhichType(), Is.EqualTo(KeywordTypes.Decimal));
+
         }
         
         
@@ -75,7 +91,25 @@ namespace SimpleShop.Test
         [Test]
         [Category("ShopParser")]
         public void Parsing_ValidFindings_True(){
-            Assert.Fail();
+            Keyword keyNumberOne = new Keyword("TestKeyword", KeywordTypes.String);
+            Keyword keyNumberTwo = new Keyword("3", KeywordTypes.Int);
+            Keyword keyNumberThree = new Keyword("2,11", KeywordTypes.Decimal);
+            Keyword[] testKeywordArray = { keyNumberOne, keyNumberTwo, keyNumberThree };
+
+            KeywordPair firstPair = new KeywordPair(keyNumberOne, "Bilal"); // emek burda
+            KeywordPair secondPair = new KeywordPair(keyNumberTwo, "Goekshen");
+            KeywordPair threePair = new KeywordPair(keyNumberThree, "Koray");
+            KeywordPair[] a = { firstPair, secondPair, threePair };
+
+            ShopParser testParser = new ShopParser();
+            testParser.SetKeywords(testKeywordArray);
+            var B = ShopParser.ExtractFromTAG(testParser, "Bilal");
+            Console.WriteLine(B[0]);
+
+            Console.WriteLine("--");
+
+            //Assert.That(ShopParser.ExtractFromTAG(testParser, "Bilal"),Is)
+            Assert.Pass();
         }
         
         /// <summary>

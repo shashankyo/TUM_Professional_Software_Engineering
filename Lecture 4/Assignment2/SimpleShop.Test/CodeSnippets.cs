@@ -5,7 +5,9 @@ namespace CodeSnippets{
     public class CodeSnippets{
 
         /// <summary>
-        /// checks if the given string and its reversed version are the same, returns the result as bool
+        /// short: checks if the given string and its reversed version are the same, returns the result as bool
+        /// converts all elements of the string into an array of characters and then reverses the order of the string
+        /// converts all elements to lowercase and compares it with the original array if they are the same
         /// </summary>
         static bool function1(string pattern) {
             var parts = pattern.ToCharArray();
