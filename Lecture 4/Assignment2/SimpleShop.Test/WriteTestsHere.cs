@@ -112,24 +112,13 @@ namespace SimpleShop.Test
             var mysample = SimpleShop.ReadFileLineByLine("D:\\WIP\\00_Akademic_TUM_ITBE\\1. Semester\\Professional Software Engineering\\Lecture 4\\Assignment2\\SimpleShop.Test\\SampleOrder.tag");
 
             var myFindings = ShopParser.ExtractFromTAG(testParser, mysample.First());
-            //Console.WriteLine(myFindings[1].Value);
-            //Console.WriteLine(myFindings[3].Key.GetString());
-            //Console.WriteLine(sampleKeywordPairArray[3].Key.GetString());
-            //ShopParser.ValidateFindings(myFindings);
-            //Test tam olmadi!
+
+
             //Assert.That(myFindings, Is.EqualTo(sampleKeywordPairArray));
             Assert.That(ShopParser.ValidateFindings(myFindings), Is.EqualTo(true));
-            myFindings[0];
+
             //Assert.That(ShopParser.ValidateFindings(sampleKeywordPairArray),Is.EqualTo(true));
 
-            //
-            //
-            // ***** PROBLEM IN CODE *****
-            //
-            // 
-            // 
-            //
-            //
 
         }
 
@@ -232,18 +221,10 @@ namespace SimpleShop.Test
             ShopParser testParser = new ShopParser();
             testParser.SetKeywords(testKeywordArray);
 
-            Console.WriteLine("--");
             var mysample = SimpleShop.ReadFileLineByLine("D:\\WIP\\00_Akademic_TUM_ITBE\\1. Semester\\Professional Software Engineering\\Lecture 4\\Assignment2\\SimpleShop.Test\\SampleOrder.tag");
 
-            Console.WriteLine("----");
             var myFindings = ShopParser.ExtractFromTAG(testParser, mysample.First());
-            Console.WriteLine(myFindings[1].Value);
-            Console.WriteLine("----");
-            Console.WriteLine(myFindings[3].Key.GetString());
-            Console.WriteLine(sampleKeywordPairArray[3].Key.GetString());
-            Console.WriteLine("----");
 
-            //Test tam olmadi!
             //Assert.That(myFindings, Is.EqualTo(sampleKeywordPairArray));
             Assert.That(myFindings.Length, Is.EqualTo(sampleKeywordPairArray.Length));
         }
@@ -276,15 +257,8 @@ namespace SimpleShop.Test
             Console.WriteLine("--");
             var mysample = SimpleShop.ReadFileLineByLine("D:\\WIP\\00_Akademic_TUM_ITBE\\1. Semester\\Professional Software Engineering\\Lecture 4\\Assignment2\\SimpleShop.Test\\SampleOrder.tag");
 
-            Console.WriteLine("----");
             var myFindings = ShopParser.ExtractFromTAG(testParser, mysample.First());
-            Console.WriteLine(myFindings[5].Value);
-            Console.WriteLine("----");
-            Console.WriteLine(myFindings[3].Key.GetString());
-            Console.WriteLine(sampleKeywordPairArray[3].Key.GetString());
-            Console.WriteLine("----");
 
-            //Test tam olmadi!
             //Assert.That(myFindings, Is.EqualTo(sampleKeywordPairArray));
             Assert.That(myFindings, Is.EqualTo(sampleKeywordPairArray));
         }
@@ -326,8 +300,6 @@ namespace SimpleShop.Test
             Customer bilalCustomer = new Customer();
             bilalCustomer.CalculatePrice(100);
 
-            InvoicePosition testInvoicePosition = 
-            testInvoicePosition.Price();
             Assert.Fail();
         }
     }
