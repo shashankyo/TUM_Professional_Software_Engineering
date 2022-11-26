@@ -205,7 +205,10 @@ namespace SimpleShop.Test
         [Test]
         [Category("Customer")]
         public void Invoice_CalculateNormalCustomer_AddValueAddedTax(){
-            Assert.Fail();
+
+            Customer bilalCustomer = new Customer();
+            bilalCustomer.CalculatePrice(100);
+            Assert.That(bilalCustomer.CalculatePrice(100), Is.EqualTo(119));
         }
         
         /// <summary>
@@ -215,7 +218,10 @@ namespace SimpleShop.Test
         [Test]
         [Category("Customer")]
         public void Invoice_CreateCustomer_ReturnsCustomer(){
-            Assert.Fail();
+            var testCustomer = Customer.CreateCustomer("bilal", "normal");
+            Customer controlCustomer = new Customer();
+            controlCustomer.GetType();
+            Assert.That(testCustomer.GetType(), Is.EqualTo(controlCustomer.GetType()));
         }
         
         /// <summary>
