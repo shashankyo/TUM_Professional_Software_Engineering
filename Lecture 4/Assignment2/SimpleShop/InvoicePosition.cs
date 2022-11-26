@@ -14,7 +14,14 @@ namespace SimpleShop{
         }
 
         public static InvoicePosition CreateFromPairs(KeywordPair[] pairs){
-            return null; 
+
+            InvoicePosition position = new InvoicePosition();
+            position.ItemIdentifier = Convert.ToUInt32(pairs[ItemNumber].Value);
+            position.ItemName = pairs[1].Value;
+            position.Customer = new Customer();
+            position.Orders = Convert.ToUInt32(pairs[3].Value);
+            position.SingleUnitPrice = Convert.ToDecimal(pairs[4].Value);
+            return position; 
         }
 
     }
