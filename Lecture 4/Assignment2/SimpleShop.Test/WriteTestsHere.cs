@@ -91,27 +91,40 @@ namespace SimpleShop.Test
         [Test]
         [Category("ShopParser")]
         public void Parsing_ValidFindings_True(){
-            Keyword keyNumberOne = new Keyword("TestKeyword", KeywordTypes.String);
-            Keyword keyNumberTwo = new Keyword("3", KeywordTypes.Int);
-            Keyword keyNumberThree = new Keyword("2,11", KeywordTypes.Decimal);
-            Keyword[] testKeywordArray = { keyNumberOne, keyNumberTwo, keyNumberThree };
+            Keyword keyNumberOne = new Keyword("ItemNumber", KeywordTypes.String);
+            Keyword keyNumberTwo = new Keyword("ItemName", KeywordTypes.String);
+            Keyword keyNumberThree = new Keyword("CustomerName", KeywordTypes.String);
+            Keyword keyNumberFour = new Keyword("AmountOrdered", KeywordTypes.String);
+            Keyword keyNumberFive = new Keyword("NetPrice", KeywordTypes.String);
+            Keyword[] testKeywordArray = { keyNumberOne, keyNumberTwo, keyNumberThree, keyNumberFour, keyNumberFive};
 
-            KeywordPair firstPair = new KeywordPair(keyNumberOne, "Bilal"); // emek burda
-            KeywordPair secondPair = new KeywordPair(keyNumberTwo, "Goekshen");
-            KeywordPair threePair = new KeywordPair(keyNumberThree, "Koray");
-            KeywordPair[] a = { firstPair, secondPair, threePair };
+            KeywordPair firstPair = new KeywordPair(keyNumberOne, "1");
+            KeywordPair secondPair = new KeywordPair(keyNumberTwo, "Burger");
+            KeywordPair threePair = new KeywordPair(keyNumberThree, "James T. Kirk");
+            KeywordPair fourPair = new KeywordPair(keyNumberThree, "2");
+            KeywordPair fivePair = new KeywordPair(keyNumberThree, "8.00");
+
+            KeywordPair[] sampleKeywordPairArray = { firstPair, secondPair, threePair, fourPair, fivePair};
 
             ShopParser testParser = new ShopParser();
             testParser.SetKeywords(testKeywordArray);
-            var B = ShopParser.ExtractFromTAG(testParser, "Bilal");
-            Console.WriteLine(B[0]);
+
 
             Console.WriteLine("--");
+            var mysample = SimpleShop.ReadFileLineByLine("D:\\WIP\\00_Akademic_TUM_ITBE\\1. Semester\\Professional Software Engineering\\Lecture 4\\Assignment2\\SimpleShop.Test\\SampleOrder.tag");
 
-            //Assert.That(ShopParser.ExtractFromTAG(testParser, "Bilal"),Is)
-            Assert.Pass();
+            Console.WriteLine("----");
+            var myFindings = ShopParser.ExtractFromTAG(testParser, mysample.First());
+            Console.WriteLine(myFindings[1].Value);
+            Console.WriteLine("----");
+
+            Assert.That(ShopParser.ValidateFindings(sampleKeywordPairArray),Is.EqualTo(true));
+
+            // ***** PROBLEMS IN CODE *****
+            // ValidateFindings Method in ShopParser was incorrect. It compares KeywordPairs within the file and the given KeywordPair Array
+            // if the comparrison is correct, it returns false which is an ERROR!!!
         }
-        
+
         /// <summary>
         /// Check if the parser works correctly. This time you should check if repetition invalidates the findings.
         /// A A B B C C
@@ -120,7 +133,35 @@ namespace SimpleShop.Test
         [Test]
         [Category("ShopParser")]
         public void Parsing_InvalidatedFindingsWithRepeatedEntry_False(){
-            Assert.Fail();
+            Keyword keyNumberOne = new Keyword("ItemNumber", KeywordTypes.String);
+            Keyword keyNumberTwo = new Keyword("ItemName", KeywordTypes.String);
+            Keyword keyNumberThree = new Keyword("CustomerName", KeywordTypes.String);
+            Keyword keyNumberFour = new Keyword("AmountOrdered", KeywordTypes.String);
+            Keyword keyNumberFive = new Keyword("NetPrice", KeywordTypes.String);
+            Keyword[] testKeywordArray = { keyNumberOne, keyNumberTwo, keyNumberThree, keyNumberFour, keyNumberFive };
+
+            KeywordPair firstPair = new KeywordPair(keyNumberOne, "1");
+            KeywordPair secondPair = new KeywordPair(keyNumberTwo, "Burger");
+            KeywordPair threePair = new KeywordPair(keyNumberThree, "James T. Kirk");
+            KeywordPair fourPair = new KeywordPair(keyNumberThree, "2");
+            KeywordPair fivePair = new KeywordPair(keyNumberThree, "8.00");
+
+            KeywordPair[] sampleKeywordPairArray = { firstPair, secondPair, threePair, fourPair, fivePair };
+
+            ShopParser testParser = new ShopParser();
+            testParser.SetKeywords(testKeywordArray);
+
+            ShopParser.ValidateFindings(sampleKeywordPairArray);
+
+            Console.WriteLine("--");
+            var mysample = SimpleShop.ReadFileLineByLine("D:\\WIP\\00_Akademic_TUM_ITBE\\1. Semester\\Professional Software Engineering\\Lecture 4\\Assignment2\\SimpleShop.Test\\SampleOrder.tag");
+
+            Console.WriteLine("----");
+            var myFindings = ShopParser.ExtractFromTAG(testParser, mysample.First());
+            Console.WriteLine(myFindings[1].Value);
+            Console.WriteLine("----");
+
+            Assert.That(ShopParser.ValidateFindings(myFindings), Is.EqualTo(ShopParser.ValidateFindings(sampleKeywordPairArray)));
         }
         
         /// <summary>
