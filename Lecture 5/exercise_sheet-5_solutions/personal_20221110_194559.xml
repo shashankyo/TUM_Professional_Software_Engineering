@@ -1,0 +1,211 @@
+<?xml version = '1.0' encoding = 'ISO-8859-1'?>
+<ROWSET>
+   <ROW NUM="1">
+      <WOCHENTAG>DI</WOCHENTAG>
+      <DATUM>08.11.2022</DATUM>
+      <VON>09:45</VON>
+      <BIS>11:15</BIS>
+      <DAUER_IN_MINUTEN>90</DAUER_IN_MINUTEN>
+      <LV_NUMMER>0240810299</LV_NUMMER>
+      <TITEL>Computational Linear Algebra</TITEL>
+      <LV_ART>VO</LV_ART>
+      <LV_GRUPPE>Standardgruppe</LV_GRUPPE>
+      <ORT>1260, Hörsaal o. Exp.-Bühne (0502.01.260)</ORT>
+      <EREIGNIS_TYP>regular class</EREIGNIS_TYP>
+      <TERMIN_TYP>confirmed</TERMIN_TYP>
+      <VORTRAGENDER_KONTAKTPERSON>Kollmannsberger Stefan, / Hug Lisa</VORTRAGENDER_KONTAKTPERSON>
+      <ANMERKUNG NULL="TRUE"/>
+   </ROW>
+   <ROW NUM="2">
+      <WOCHENTAG>DI</WOCHENTAG>
+      <DATUM>08.11.2022</DATUM>
+      <VON>12:00</VON>
+      <BIS>14:00</BIS>
+      <DAUER_IN_MINUTEN>120</DAUER_IN_MINUTEN>
+      <LV_NUMMER>0000002221</LV_NUMMER>
+      <TITEL>Aeroelasticity</TITEL>
+      <LV_ART>UE</LV_ART>
+      <LV_GRUPPE>Standardgruppe</LV_GRUPPE>
+      <ORT>MW 2050, Zeichen-/Hörsaal (5510.02.050)</ORT>
+      <EREIGNIS_TYP>regular class</EREIGNIS_TYP>
+      <TERMIN_TYP>confirmed</TERMIN_TYP>
+      <VORTRAGENDER_KONTAKTPERSON NULL="TRUE"/>
+      <ANMERKUNG NULL="TRUE"/>
+   </ROW>
+   <ROW NUM="3">
+      <WOCHENTAG>DI</WOCHENTAG>
+      <DATUM>08.11.2022</DATUM>
+      <VON>15:00</VON>
+      <BIS>16:30</BIS>
+      <DAUER_IN_MINUTEN>90</DAUER_IN_MINUTEN>
+      <LV_NUMMER>0220530324</LV_NUMMER>
+      <TITEL>Structural Optimization I</TITEL>
+      <LV_ART>VO</LV_ART>
+      <LV_GRUPPE>Standardgruppe</LV_GRUPPE>
+      <ORT>Theresianum, 0601, Hörsaal eben, ohne exp. Bühne (0506.EG.601)</ORT>
+      <EREIGNIS_TYP>regular class</EREIGNIS_TYP>
+      <TERMIN_TYP>confirmed</TERMIN_TYP>
+      <VORTRAGENDER_KONTAKTPERSON NULL="TRUE"/>
+      <ANMERKUNG NULL="TRUE"/>
+   </ROW>
+   <ROW NUM="4">
+      <WOCHENTAG>DI</WOCHENTAG>
+      <DATUM>08.11.2022</DATUM>
+      <VON>16:45</VON>
+      <BIS>18:15</BIS>
+      <DAUER_IN_MINUTEN>90</DAUER_IN_MINUTEN>
+      <LV_NUMMER>0000000342</LV_NUMMER>
+      <TITEL>Exercise Structural Optimization 2</TITEL>
+      <LV_ART>UE</LV_ART>
+      <LV_GRUPPE>Standardgruppe</LV_GRUPPE>
+      <ORT>Theresianum, 0601, Hörsaal eben, ohne exp. Bühne (0506.EG.601)</ORT>
+      <EREIGNIS_TYP>regular class</EREIGNIS_TYP>
+      <TERMIN_TYP>confirmed</TERMIN_TYP>
+      <VORTRAGENDER_KONTAKTPERSON>Kaps Arne</VORTRAGENDER_KONTAKTPERSON>
+      <ANMERKUNG NULL="TRUE"/>
+   </ROW>
+   <ROW NUM="5">
+      <WOCHENTAG>MI</WOCHENTAG>
+      <DATUM>09.11.2022</DATUM>
+      <VON>08:00</VON>
+      <BIS>09:30</BIS>
+      <DAUER_IN_MINUTEN>90</DAUER_IN_MINUTEN>
+      <LV_NUMMER>0000002049</LV_NUMMER>
+      <TITEL>Computational Plasticity</TITEL>
+      <LV_ART>VO</LV_ART>
+      <LV_GRUPPE>Standardgruppe</LV_GRUPPE>
+      <ORT>N1039ZG, Seminarraum (0101.Z1.039)</ORT>
+      <EREIGNIS_TYP>regular class</EREIGNIS_TYP>
+      <TERMIN_TYP>confirmed</TERMIN_TYP>
+      <VORTRAGENDER_KONTAKTPERSON>Duddeck Fabian</VORTRAGENDER_KONTAKTPERSON>
+      <ANMERKUNG NULL="TRUE"/>
+   </ROW>
+   <ROW NUM="6">
+      <WOCHENTAG>MI</WOCHENTAG>
+      <DATUM>09.11.2022</DATUM>
+      <VON>08:00</VON>
+      <BIS>09:30</BIS>
+      <DAUER_IN_MINUTEN>90</DAUER_IN_MINUTEN>
+      <LV_NUMMER>0000000245</LV_NUMMER>
+      <TITEL>Introduction to Finite Element Methods</TITEL>
+      <LV_ART>VI</LV_ART>
+      <LV_GRUPPE>Standardgruppe</LV_GRUPPE>
+      <ORT>N 1070 ZG, Lothar-Rohde-Hörsaal (0101.Z1.070)</ORT>
+      <EREIGNIS_TYP>regular class</EREIGNIS_TYP>
+      <TERMIN_TYP>confirmed</TERMIN_TYP>
+      <VORTRAGENDER_KONTAKTPERSON NULL="TRUE"/>
+      <ANMERKUNG NULL="TRUE"/>
+   </ROW>
+   <ROW NUM="7">
+      <WOCHENTAG>MI</WOCHENTAG>
+      <DATUM>09.11.2022</DATUM>
+      <VON>09:45</VON>
+      <BIS>11:15</BIS>
+      <DAUER_IN_MINUTEN>90</DAUER_IN_MINUTEN>
+      <LV_NUMMER>0000002050</LV_NUMMER>
+      <TITEL>Fracture and Damage</TITEL>
+      <LV_ART>VO</LV_ART>
+      <LV_GRUPPE>Standardgruppe</LV_GRUPPE>
+      <ORT>N1039ZG, Seminarraum (0101.Z1.039)</ORT>
+      <EREIGNIS_TYP>regular class</EREIGNIS_TYP>
+      <TERMIN_TYP>confirmed</TERMIN_TYP>
+      <VORTRAGENDER_KONTAKTPERSON>Duddeck Fabian</VORTRAGENDER_KONTAKTPERSON>
+      <ANMERKUNG NULL="TRUE"/>
+   </ROW>
+   <ROW NUM="8">
+      <WOCHENTAG>MI</WOCHENTAG>
+      <DATUM>09.11.2022</DATUM>
+      <VON>13:15</VON>
+      <BIS>14:45</BIS>
+      <DAUER_IN_MINUTEN>90</DAUER_IN_MINUTEN>
+      <LV_NUMMER>0000000245</LV_NUMMER>
+      <TITEL>Introduction to Finite Element Methods</TITEL>
+      <LV_ART>VI</LV_ART>
+      <LV_GRUPPE>Standardgruppe</LV_GRUPPE>
+      <ORT>Theresianum, 0602, Hörsaal ansteigend, ohne exp. B (0506.EG.602)</ORT>
+      <EREIGNIS_TYP>regular class</EREIGNIS_TYP>
+      <TERMIN_TYP>confirmed</TERMIN_TYP>
+      <VORTRAGENDER_KONTAKTPERSON NULL="TRUE"/>
+      <ANMERKUNG NULL="TRUE"/>
+   </ROW>
+   <ROW NUM="9">
+      <WOCHENTAG>MI</WOCHENTAG>
+      <DATUM>09.11.2022</DATUM>
+      <VON>16:45</VON>
+      <BIS>18:15</BIS>
+      <DAUER_IN_MINUTEN>90</DAUER_IN_MINUTEN>
+      <LV_NUMMER>0821008374</LV_NUMMER>
+      <TITEL>Structural Optimisation 2</TITEL>
+      <LV_ART>VO</LV_ART>
+      <LV_GRUPPE>Standardgruppe</LV_GRUPPE>
+      <ORT>N1039ZG, Seminarraum (0101.Z1.039)</ORT>
+      <EREIGNIS_TYP>regular class</EREIGNIS_TYP>
+      <TERMIN_TYP>confirmed</TERMIN_TYP>
+      <VORTRAGENDER_KONTAKTPERSON>Duddeck Fabian</VORTRAGENDER_KONTAKTPERSON>
+      <ANMERKUNG NULL="TRUE"/>
+   </ROW>
+   <ROW NUM="10">
+      <WOCHENTAG>DO</WOCHENTAG>
+      <DATUM>10.11.2022</DATUM>
+      <VON>09:45</VON>
+      <BIS>11:15</BIS>
+      <DAUER_IN_MINUTEN>90</DAUER_IN_MINUTEN>
+      <LV_NUMMER>0240046820</LV_NUMMER>
+      <TITEL>Introduction to Functional Analysis (BV/COME)</TITEL>
+      <LV_ART>VO</LV_ART>
+      <LV_GRUPPE>Standardgruppe</LV_GRUPPE>
+      <ORT>2770, Hörsaal (0507.02.770)</ORT>
+      <EREIGNIS_TYP>regular class</EREIGNIS_TYP>
+      <TERMIN_TYP>confirmed</TERMIN_TYP>
+      <VORTRAGENDER_KONTAKTPERSON NULL="TRUE"/>
+      <ANMERKUNG NULL="TRUE"/>
+   </ROW>
+   <ROW NUM="11">
+      <WOCHENTAG>DO</WOCHENTAG>
+      <DATUM>10.11.2022</DATUM>
+      <VON>10:15</VON>
+      <BIS>11:45</BIS>
+      <DAUER_IN_MINUTEN>90</DAUER_IN_MINUTEN>
+      <LV_NUMMER>0000002220</LV_NUMMER>
+      <TITEL>Aeroelasticity</TITEL>
+      <LV_ART>VO</LV_ART>
+      <LV_GRUPPE>Standardgruppe</LV_GRUPPE>
+      <ORT>MW 1250, Hörsaal (5502.01.250)</ORT>
+      <EREIGNIS_TYP>regular class</EREIGNIS_TYP>
+      <TERMIN_TYP>confirmed</TERMIN_TYP>
+      <VORTRAGENDER_KONTAKTPERSON NULL="TRUE"/>
+      <ANMERKUNG NULL="TRUE"/>
+   </ROW>
+   <ROW NUM="12">
+      <WOCHENTAG>DO</WOCHENTAG>
+      <DATUM>10.11.2022</DATUM>
+      <VON>13:00</VON>
+      <BIS>16:00</BIS>
+      <DAUER_IN_MINUTEN>180</DAUER_IN_MINUTEN>
+      <LV_NUMMER>0000001387</LV_NUMMER>
+      <TITEL>Visual Data Analytics (IN2026, IN8019)</TITEL>
+      <LV_ART>VI</LV_ART>
+      <LV_GRUPPE>Standardgruppe</LV_GRUPPE>
+      <ORT>MW 0001, Gustav-Niemann-Hörsaal (5510.EG.001)</ORT>
+      <EREIGNIS_TYP>regular class</EREIGNIS_TYP>
+      <TERMIN_TYP>confirmed</TERMIN_TYP>
+      <VORTRAGENDER_KONTAKTPERSON NULL="TRUE"/>
+      <ANMERKUNG NULL="TRUE"/>
+   </ROW>
+   <ROW NUM="13">
+      <WOCHENTAG>FR</WOCHENTAG>
+      <DATUM>11.11.2022</DATUM>
+      <VON>13:15</VON>
+      <BIS>14:45</BIS>
+      <DAUER_IN_MINUTEN>90</DAUER_IN_MINUTEN>
+      <LV_NUMMER>0000000634</LV_NUMMER>
+      <TITEL>FE-Modelling, Simulation and Validation</TITEL>
+      <LV_ART>SE</LV_ART>
+      <LV_GRUPPE>Standardgruppe</LV_GRUPPE>
+      <ORT>3238, Cip-Raum (0502.03.238)</ORT>
+      <EREIGNIS_TYP>regular class</EREIGNIS_TYP>
+      <TERMIN_TYP>confirmed</TERMIN_TYP>
+      <VORTRAGENDER_KONTAKTPERSON>Kaps Arne</VORTRAGENDER_KONTAKTPERSON>
+      <ANMERKUNG NULL="TRUE"/>
+   </ROW>
+</ROWSET>

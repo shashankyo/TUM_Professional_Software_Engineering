@@ -59,7 +59,6 @@ namespace SimpleShop{
         public static bool ValidateFindings(KeywordPair[] findings){
             var keyword_table = new string[findings.Length];
             var head = 0;
-            
             foreach (var pair in findings){
                 foreach (var test in keyword_table) {
                     if (pair.Key.GetString() == test)
