@@ -119,6 +119,7 @@ namespace SimpleShop.Test
             Console.WriteLine(myFindings[1].Value);
             Console.WriteLine("----");
 
+            //Test tam olmadi!
             Assert.That(ShopParser.ValidateFindings(sampleKeywordPairArray),Is.EqualTo(true));
 
             // ***** PROBLEMS IN CODE *****
