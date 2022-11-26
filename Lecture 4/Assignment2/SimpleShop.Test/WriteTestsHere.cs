@@ -7,6 +7,7 @@ namespace SimpleShop.Test
 {
     public class Tests
     {
+        /* test b was here*/
         [SetUp]
         public void Setup(){
         }
