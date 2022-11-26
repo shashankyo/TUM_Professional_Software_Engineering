@@ -86,6 +86,7 @@ namespace SimpleShop.Test
         [Category("Customer")]
         public void Invoice_CreateCustomer_Company(){
             var company = Customer.CreateCustomer("Starfleet", "Company");
+            Console.WriteLine(company.GetType().ToString());
             Assert.AreEqual(company.GetType().ToString(), "SimpleShop.Company");
             // BaseType == Parent
             Assert.AreEqual(company.GetType().BaseType.ToString(), "SimpleShop.Customer");
@@ -168,7 +169,7 @@ namespace SimpleShop.Test
         public void FullProgram_OutputCorrect_Valid(){
             using (var sw = new StringWriter()){
                 Console.SetOut(sw);
-                SimpleShop.Main(new string[]{"../../../../SimpleShop.Test/SampleOrder.tag"}); // change this to path of your SampleOrder.tag file
+                SimpleShop.Main(new string[]{"D:\\WIP\\00_Akademic_TUM_ITBE\\1. Semester\\Professional Software Engineering\\Lecture 4\\Assignment2\\SimpleShop.Test\\SampleOrder.tag" }); // change this to path of your SampleOrder.tag file
                 
                 var output = sw.ToString();
                 var kirk_burger = output.IndexOf("James T. Kirk, Burger, 2, 19.04", StringComparison.Ordinal) >= 0;

@@ -270,7 +270,7 @@ namespace SimpleShop.Test
         [Test]
         [Category("Customer")]
         public void Invoice_CreateCustomer_ReturnsCustomer(){
-            var testCustomer = Customer.CreateCustomer("bilal", "normal");
+            var testCustomer = Customer.CreateCustomer("bilal","Company");
             Customer controlCustomer = new Customer();
             controlCustomer.GetType();
             Assert.That(testCustomer.GetType(), Is.EqualTo(controlCustomer.GetType()));

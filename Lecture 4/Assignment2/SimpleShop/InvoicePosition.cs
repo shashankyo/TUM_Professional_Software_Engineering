@@ -16,13 +16,35 @@ namespace SimpleShop{
         public static InvoicePosition CreateFromPairs(KeywordPair[] pairs){
 
             InvoicePosition position = new InvoicePosition();
-            position.ItemIdentifier = Convert.ToUInt32(pairs[ItemNumber].Value);
-            position.ItemName = pairs[1].Value;
+            KeywordPair[] sortedArray = new KeywordPair[pairs.Length];
+            foreach (var i in pairs)
+            {
+               if(i.Key.GetString() == "ItemName")
+                {
+                    sortedArray[1] = i;
+                }
+               if(i.Key.GetString() == "AmountOrdered")
+                {
+                    sortedArray[3] = i;
+                }
+               if(i.Key.GetString() == "ItemNumber")
+                {
+                    sortedArray[0] = i;
+                }
+               if (i.Key.GetString() == "NetPrice")
+                {
+                    sortedArray[4] = i;
+                }
+            }
+            position.ItemIdentifier = Convert.ToUInt32(sortedArray[0].Value);
+            position.ItemName = sortedArray[1].Value;
             position.Customer = new Customer();
-            position.Orders = Convert.ToUInt32(pairs[3].Value);
-            position.SingleUnitPrice = Convert.ToDecimal(pairs[4].Value);
+            position.Orders = Convert.ToUInt32(sortedArray[3].Value);
+            position.SingleUnitPrice = Convert.ToDecimal(sortedArray[4].Value);
             return position; 
         }
 
     }
 }
+
+
