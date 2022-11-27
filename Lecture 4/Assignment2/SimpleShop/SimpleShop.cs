@@ -64,6 +64,8 @@ namespace SimpleShop
             PrintWelcome();
             var orders = ReadFileLineByLine(args[0]);
             Console.WriteLine("Invoices:");
+            //Console.WriteLine(orders[1]);
+
 
             //#############################################################################
             //# Code to modify starts here:
@@ -72,7 +74,31 @@ namespace SimpleShop
             //# (3) Create Invoices from "orders" (which should be in TAG format)
             //# (4) Output the sum for each customer, you must use the "PrintInvoice" function
             //#############################################################################
-          
+
+            Keyword keyNumberOne = new Keyword("ItemNumber", KeywordTypes.String);
+            Keyword keyNumberTwo = new Keyword("ItemName", KeywordTypes.String);
+            Keyword keyNumberThree = new Keyword("CustomerName", KeywordTypes.String);
+            Keyword keyNumberFour = new Keyword("AmountOrdered", KeywordTypes.String);
+            Keyword keyNumberFive = new Keyword("NetPrice", KeywordTypes.String);
+            Keyword keyNumberSix = new Keyword("CustomerType", KeywordTypes.String);
+            Keyword[] shopKeywordArray = { keyNumberOne, keyNumberTwo, keyNumberThree, keyNumberFour, keyNumberFive, keyNumberSix };
+
+            ShopParser shopParser = new ShopParser();
+            shopParser.SetKeywords(shopKeywordArray);
+            foreach (var order in orders)
+            {
+                var parsedOrders = ShopParser.ExtractFromTAG(shopParser, order);
+                InvoicePosition orderInvoice = InvoicePosition.CreateFromPairs(parsedOrders);
+                PrintInvoice(orderInvoice);
+            }
+            //foreach (var i in parsedOrders)
+            //{
+            //    Console.WriteLine(i.Key.GetString());
+            //    Console.WriteLine(i.Value);
+            //}
+
+
+
             return 0;
         }
     }

@@ -43,6 +43,7 @@ namespace SimpleShop{
         public string Value;
 
         public KeywordPair(Keyword key, string value){
+
             this.Key = key;
             this.Value = value;
         }

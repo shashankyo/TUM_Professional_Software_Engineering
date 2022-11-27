@@ -214,7 +214,7 @@ namespace SimpleShop.Test
 
             var myFindings = ShopParser.ExtractFromTAG(testParser, string.Join(" ", mysample));
 
-            Assert.That(myFindings.Length, Is.EqualTo(5));
+            Assert.That(myFindings.Length, Is.EqualTo(6));
         }
         
         /// <summary>
@@ -270,7 +270,7 @@ namespace SimpleShop.Test
         [Test]
         [Category("Customer")]
         public void Invoice_CreateCustomer_ReturnsCustomer(){
-            var testCustomer = Customer.CreateCustomer("bilal","Company");
+            var testCustomer = Customer.CreateCustomer("bilal","");
             Customer controlCustomer = new Customer();
             controlCustomer.GetType();
             Assert.That(testCustomer.GetType(), Is.EqualTo(controlCustomer.GetType()));

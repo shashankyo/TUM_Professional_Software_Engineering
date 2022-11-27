@@ -18,7 +18,7 @@ namespace SimpleShop{
                 company.Name = name;
                 return company;
             }
-            if (customerType == "SimpleShop.Student")
+            if (customerType == "Student")
             {
                 Student student = new Student();
                 student.Name = name;
@@ -35,10 +35,18 @@ namespace SimpleShop{
     }
     public class Company : Customer
     {
-
+        public override decimal CalculatePrice(decimal basePrice)
+        {
+            return  basePrice;
+        }
     }
     public class Student : Customer
     {
+        public override decimal CalculatePrice(decimal basePrice)
+        {
 
+            decimal discount = 0.8m;
+            return (1 + ValueAddedTax) * (Decimal.Multiply(basePrice, discount));
+        }
     }
 }

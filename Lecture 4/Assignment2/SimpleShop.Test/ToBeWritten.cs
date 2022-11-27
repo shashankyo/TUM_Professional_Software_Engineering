@@ -86,7 +86,6 @@ namespace SimpleShop.Test
         [Category("Customer")]
         public void Invoice_CreateCustomer_Company(){
             var company = Customer.CreateCustomer("Starfleet", "Company");
-            Console.WriteLine(company.GetType().ToString());
             Assert.AreEqual(company.GetType().ToString(), "SimpleShop.Company");
             // BaseType == Parent
             Assert.AreEqual(company.GetType().BaseType.ToString(), "SimpleShop.Customer");
@@ -100,7 +99,7 @@ namespace SimpleShop.Test
         [Category("Customer")]
         public void Invoice_CreateCustomer_Student(){
             // The everlasting scholar
-            var student = Customer.CreateCustomer("S'chn T'gai Spock", "SimpleShop.Student");
+            var student = Customer.CreateCustomer("S'chn T'gai Spock", "Student"); // Student was written wrong
             // BaseType == Parent
             Assert.AreEqual(student.GetType().BaseType.ToString(), "SimpleShop.Customer");
         }
@@ -169,14 +168,15 @@ namespace SimpleShop.Test
         public void FullProgram_OutputCorrect_Valid(){
             using (var sw = new StringWriter()){
                 Console.SetOut(sw);
-                SimpleShop.Main(new string[]{"D:\\WIP\\00_Akademic_TUM_ITBE\\1. Semester\\Professional Software Engineering\\Lecture 4\\Assignment2\\SimpleShop.Test\\SampleOrder.tag" }); // change this to path of your SampleOrder.tag file
-                
+                SimpleShop.Main(new string[] { "D:\\WIP\\00_Akademic_TUM_ITBE\\1. Semester\\Professional Software Engineering\\Lecture 4\\Assignment2\\SimpleShop.Test\\SampleOrder.tag" }); // change this to path of your SampleOrder.tag file
+
                 var output = sw.ToString();
                 var kirk_burger = output.IndexOf("James T. Kirk, Burger, 2, 19.04", StringComparison.Ordinal) >= 0;
                 var kirk_coke = output.IndexOf("James T. Kirk, Coke, 1, 2.98", StringComparison.Ordinal) >= 0;
                 var spock_ice = output.IndexOf("S'chn T'gai Spock, IceCream, 7, 37.49", StringComparison.Ordinal) >= 0;
                 var spock_ice_discout = output.IndexOf("S'chn T'gai Spock, IceCream, 7, 29.99", StringComparison.Ordinal) >= 0;
                 Assert.IsTrue(kirk_burger && kirk_coke && (spock_ice || spock_ice_discout));
+
 
             }
         }
