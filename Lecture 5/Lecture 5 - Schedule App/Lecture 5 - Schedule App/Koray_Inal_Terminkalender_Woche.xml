@@ -1,0 +1,227 @@
+<?xml version = '1.0' encoding = 'ISO-8859-1'?>
+<ROWSET>
+   <ROW NUM="1">
+      <WOCHENTAG>MO</WOCHENTAG>
+      <DATUM>28.11.2022</DATUM>
+      <VON>09:45</VON>
+      <BIS>11:15</BIS>
+      <DAUER_IN_MINUTEN>90</DAUER_IN_MINUTEN>
+      <LV_NUMMER>0000004208</LV_NUMMER>
+      <TITEL>Strategic Management for Engineers</TITEL>
+      <LV_ART>VO</LV_ART>
+      <LV_GRUPPE>Standardgruppe</LV_GRUPPE>
+      <ORT>N 1090 ZG, Hörsaal mit exp. Bühne (0101.Z1.090)</ORT>
+      <EREIGNIS_TYP>Abhaltung</EREIGNIS_TYP>
+      <TERMIN_TYP>fix</TERMIN_TYP>
+      <VORTRAGENDER_KONTAKTPERSON NULL="TRUE"/>
+      <ANMERKUNG NULL="TRUE"/>
+   </ROW>
+   <ROW NUM="2">
+      <WOCHENTAG>MO</WOCHENTAG>
+      <DATUM>28.11.2022</DATUM>
+      <VON>11:30</VON>
+      <BIS>13:00</BIS>
+      <DAUER_IN_MINUTEN>90</DAUER_IN_MINUTEN>
+      <LV_NUMMER>2022000002</LV_NUMMER>
+      <TITEL>Geoinformationswissenschaft</TITEL>
+      <LV_ART>VI</LV_ART>
+      <LV_GRUPPE>Standardgruppe</LV_GRUPPE>
+      <ORT>2408, Seminarraum (0504.02.408)</ORT>
+      <EREIGNIS_TYP>Abhaltung</EREIGNIS_TYP>
+      <TERMIN_TYP>fix</TERMIN_TYP>
+      <VORTRAGENDER_KONTAKTPERSON NULL="TRUE"/>
+      <ANMERKUNG NULL="TRUE"/>
+   </ROW>
+   <ROW NUM="3">
+      <WOCHENTAG>MO</WOCHENTAG>
+      <DATUM>28.11.2022</DATUM>
+      <VON>13:15</VON>
+      <BIS>14:45</BIS>
+      <DAUER_IN_MINUTEN>90</DAUER_IN_MINUTEN>
+      <LV_NUMMER>0000000951</LV_NUMMER>
+      <TITEL>Seminarvortrag Immobilienentwicklung</TITEL>
+      <LV_ART>VO</LV_ART>
+      <LV_GRUPPE>Standardgruppe</LV_GRUPPE>
+      <ORT>Theresianum, 0601, Hörsaal eben, ohne exp. Bühne (0506.EG.601)</ORT>
+      <EREIGNIS_TYP>Abhaltung</EREIGNIS_TYP>
+      <TERMIN_TYP>fix</TERMIN_TYP>
+      <VORTRAGENDER_KONTAKTPERSON NULL="TRUE"/>
+      <ANMERKUNG>Details see www.lbi.bv.tum.de</ANMERKUNG>
+   </ROW>
+   <ROW NUM="4">
+      <WOCHENTAG>MO</WOCHENTAG>
+      <DATUM>28.11.2022</DATUM>
+      <VON>16:00</VON>
+      <BIS>18:30</BIS>
+      <DAUER_IN_MINUTEN>150</DAUER_IN_MINUTEN>
+      <LV_NUMMER>22000IKK04</LV_NUMMER>
+      <TITEL>The EuroTeQ Engineer: Cultural Agility for Studying and Working in Multicultural Settings</TITEL>
+      <LV_ART>WS</LV_ART>
+      <LV_GRUPPE>Nierhoff-King (Online)</LV_GRUPPE>
+      <ORT>Online: Videokonferenz / Zoom etc.</ORT>
+      <EREIGNIS_TYP>Abhaltung</EREIGNIS_TYP>
+      <TERMIN_TYP>fix</TERMIN_TYP>
+      <VORTRAGENDER_KONTAKTPERSON NULL="TRUE"/>
+      <ANMERKUNG NULL="TRUE"/>
+   </ROW>
+   <ROW NUM="5">
+      <WOCHENTAG>DI</WOCHENTAG>
+      <DATUM>29.11.2022</DATUM>
+      <VON>18:30</VON>
+      <BIS>20:00</BIS>
+      <DAUER_IN_MINUTEN>90</DAUER_IN_MINUTEN>
+      <LV_NUMMER>220000DE47</LV_NUMMER>
+      <TITEL>Deutsch als Fremdsprache C1.2 - Professionell kommunizieren in Wissenschaft und Beruf</TITEL>
+      <LV_ART>SE</LV_ART>
+      <LV_GRUPPE>Elekes 18:30 Uhr (Online)</LV_GRUPPE>
+      <ORT>Online: Videokonferenz / Zoom etc.</ORT>
+      <EREIGNIS_TYP>Abhaltung</EREIGNIS_TYP>
+      <TERMIN_TYP>fix</TERMIN_TYP>
+      <VORTRAGENDER_KONTAKTPERSON NULL="TRUE"/>
+      <ANMERKUNG NULL="TRUE"/>
+   </ROW>
+   <ROW NUM="6">
+      <WOCHENTAG>MI</WOCHENTAG>
+      <DATUM>30.11.2022</DATUM>
+      <VON>09:45</VON>
+      <BIS>11:15</BIS>
+      <DAUER_IN_MINUTEN>90</DAUER_IN_MINUTEN>
+      <LV_NUMMER>0000000561</LV_NUMMER>
+      <TITEL>PRE - Photogrammetry and Remote Sensing</TITEL>
+      <LV_ART>VO</LV_ART>
+      <LV_GRUPPE>Standardgruppe</LV_GRUPPE>
+      <ORT>0120, Hörsaal  gem. Nutzung GEO,SP,WS,OR (0501.EG.120)</ORT>
+      <EREIGNIS_TYP>Abhaltung</EREIGNIS_TYP>
+      <TERMIN_TYP>fix</TERMIN_TYP>
+      <VORTRAGENDER_KONTAKTPERSON NULL="TRUE"/>
+      <ANMERKUNG NULL="TRUE"/>
+   </ROW>
+   <ROW NUM="7">
+      <WOCHENTAG>MI</WOCHENTAG>
+      <DATUM>30.11.2022</DATUM>
+      <VON>11:30</VON>
+      <BIS>13:00</BIS>
+      <DAUER_IN_MINUTEN>90</DAUER_IN_MINUTEN>
+      <LV_NUMMER>0000002132</LV_NUMMER>
+      <TITEL>Computational Design in Architecture</TITEL>
+      <LV_ART>VO</LV_ART>
+      <LV_GRUPPE>Standardgruppe</LV_GRUPPE>
+      <ORT>1260, Hörsaal o. Exp.-Bühne (0502.01.260)</ORT>
+      <EREIGNIS_TYP>Abhaltung</EREIGNIS_TYP>
+      <TERMIN_TYP>fix</TERMIN_TYP>
+      <VORTRAGENDER_KONTAKTPERSON>Petzold Frank</VORTRAGENDER_KONTAKTPERSON>
+      <ANMERKUNG NULL="TRUE"/>
+   </ROW>
+   <ROW NUM="8">
+      <WOCHENTAG>MI</WOCHENTAG>
+      <DATUM>30.11.2022</DATUM>
+      <VON>13:15</VON>
+      <BIS>14:45</BIS>
+      <DAUER_IN_MINUTEN>90</DAUER_IN_MINUTEN>
+      <LV_NUMMER>2022000002</LV_NUMMER>
+      <TITEL>Geoinformationswissenschaft</TITEL>
+      <LV_ART>VI</LV_ART>
+      <LV_GRUPPE>Standardgruppe</LV_GRUPPE>
+      <ORT>3238, Cip-Raum (0502.03.238)</ORT>
+      <EREIGNIS_TYP>Abhaltung</EREIGNIS_TYP>
+      <TERMIN_TYP>fix</TERMIN_TYP>
+      <VORTRAGENDER_KONTAKTPERSON NULL="TRUE"/>
+      <ANMERKUNG NULL="TRUE"/>
+   </ROW>
+   <ROW NUM="9">
+      <WOCHENTAG>MI</WOCHENTAG>
+      <DATUM>30.11.2022</DATUM>
+      <VON>15:00</VON>
+      <BIS>16:30</BIS>
+      <DAUER_IN_MINUTEN>90</DAUER_IN_MINUTEN>
+      <LV_NUMMER>0000000350</LV_NUMMER>
+      <TITEL>Datenbanken für Ingenieure</TITEL>
+      <LV_ART>VO</LV_ART>
+      <LV_GRUPPE>Standardgruppe</LV_GRUPPE>
+      <ORT>N0199, Cip-Raum (0101.EG.199)</ORT>
+      <EREIGNIS_TYP>Abhaltung</EREIGNIS_TYP>
+      <TERMIN_TYP>fix</TERMIN_TYP>
+      <VORTRAGENDER_KONTAKTPERSON NULL="TRUE"/>
+      <ANMERKUNG NULL="TRUE"/>
+   </ROW>
+   <ROW NUM="10">
+      <WOCHENTAG>MI</WOCHENTAG>
+      <DATUM>30.11.2022</DATUM>
+      <VON>16:00</VON>
+      <BIS>18:30</BIS>
+      <DAUER_IN_MINUTEN>150</DAUER_IN_MINUTEN>
+      <LV_NUMMER>22000IKK04</LV_NUMMER>
+      <TITEL>The EuroTeQ Engineer: Cultural Agility for Studying and Working in Multicultural Settings</TITEL>
+      <LV_ART>WS</LV_ART>
+      <LV_GRUPPE>Nierhoff-King (Online)</LV_GRUPPE>
+      <ORT>Online: Videokonferenz / Zoom etc.</ORT>
+      <EREIGNIS_TYP>Abhaltung</EREIGNIS_TYP>
+      <TERMIN_TYP>fix</TERMIN_TYP>
+      <VORTRAGENDER_KONTAKTPERSON NULL="TRUE"/>
+      <ANMERKUNG NULL="TRUE"/>
+   </ROW>
+   <ROW NUM="11">
+      <WOCHENTAG>FR</WOCHENTAG>
+      <DATUM>02.12.2022</DATUM>
+      <VON>08:00</VON>
+      <BIS>09:30</BIS>
+      <DAUER_IN_MINUTEN>90</DAUER_IN_MINUTEN>
+      <LV_NUMMER>0000005024</LV_NUMMER>
+      <TITEL>PRE-T - Übungen zur Photogrammetrie, Fernerkundung und Digitalen BIldverarbeitung</TITEL>
+      <LV_ART>UE</LV_ART>
+      <LV_GRUPPE>Standardgruppe</LV_GRUPPE>
+      <ORT>0120, Hörsaal  gem. Nutzung GEO,SP,WS,OR (0501.EG.120)</ORT>
+      <EREIGNIS_TYP>Abhaltung</EREIGNIS_TYP>
+      <TERMIN_TYP>fix</TERMIN_TYP>
+      <VORTRAGENDER_KONTAKTPERSON NULL="TRUE"/>
+      <ANMERKUNG NULL="TRUE"/>
+   </ROW>
+   <ROW NUM="12">
+      <WOCHENTAG>MO</WOCHENTAG>
+      <DATUM>05.12.2022</DATUM>
+      <VON>09:45</VON>
+      <BIS>11:15</BIS>
+      <DAUER_IN_MINUTEN>90</DAUER_IN_MINUTEN>
+      <LV_NUMMER>0000004208</LV_NUMMER>
+      <TITEL>Strategic Management for Engineers</TITEL>
+      <LV_ART>VO</LV_ART>
+      <LV_GRUPPE>Standardgruppe</LV_GRUPPE>
+      <ORT>N 1090 ZG, Hörsaal mit exp. Bühne (0101.Z1.090)</ORT>
+      <EREIGNIS_TYP>Abhaltung</EREIGNIS_TYP>
+      <TERMIN_TYP>fix</TERMIN_TYP>
+      <VORTRAGENDER_KONTAKTPERSON NULL="TRUE"/>
+      <ANMERKUNG NULL="TRUE"/>
+   </ROW>
+   <ROW NUM="13">
+      <WOCHENTAG>MO</WOCHENTAG>
+      <DATUM>05.12.2022</DATUM>
+      <VON>11:30</VON>
+      <BIS>13:00</BIS>
+      <DAUER_IN_MINUTEN>90</DAUER_IN_MINUTEN>
+      <LV_NUMMER>2022000002</LV_NUMMER>
+      <TITEL>Geoinformationswissenschaft</TITEL>
+      <LV_ART>VI</LV_ART>
+      <LV_GRUPPE>Standardgruppe</LV_GRUPPE>
+      <ORT>2408, Seminarraum (0504.02.408)</ORT>
+      <EREIGNIS_TYP>Abhaltung</EREIGNIS_TYP>
+      <TERMIN_TYP>fix</TERMIN_TYP>
+      <VORTRAGENDER_KONTAKTPERSON NULL="TRUE"/>
+      <ANMERKUNG NULL="TRUE"/>
+   </ROW>
+   <ROW NUM="14">
+      <WOCHENTAG>MO</WOCHENTAG>
+      <DATUM>05.12.2022</DATUM>
+      <VON>13:15</VON>
+      <BIS>14:45</BIS>
+      <DAUER_IN_MINUTEN>90</DAUER_IN_MINUTEN>
+      <LV_NUMMER>0000000951</LV_NUMMER>
+      <TITEL>Seminarvortrag Immobilienentwicklung</TITEL>
+      <LV_ART>VO</LV_ART>
+      <LV_GRUPPE>Standardgruppe</LV_GRUPPE>
+      <ORT>Theresianum, 0601, Hörsaal eben, ohne exp. Bühne (0506.EG.601)</ORT>
+      <EREIGNIS_TYP>Abhaltung</EREIGNIS_TYP>
+      <TERMIN_TYP>fix</TERMIN_TYP>
+      <VORTRAGENDER_KONTAKTPERSON NULL="TRUE"/>
+      <ANMERKUNG>Details see www.lbi.bv.tum.de</ANMERKUNG>
+   </ROW>
+</ROWSET>
