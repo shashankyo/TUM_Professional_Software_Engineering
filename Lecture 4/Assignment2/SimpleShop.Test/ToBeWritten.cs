@@ -71,6 +71,7 @@ namespace SimpleShop.Test
             pairs[4] = new KeywordPair(new Keyword("NetPrice"), invoicePosition.SingleUnitPrice.ToString() + "%&öä/");
 
             var invoice = InvoicePosition.CreateFromPairs(pairs);
+
             Assert.AreEqual(invoicePosition.ItemIdentifier, invoice.ItemIdentifier);
             Assert.AreEqual(invoicePosition.ItemName.GetType(), invoice.ItemName.GetType());
             Assert.AreEqual(invoicePosition.Customer.Name, invoice.Customer.Name);
@@ -168,7 +169,7 @@ namespace SimpleShop.Test
         public void FullProgram_OutputCorrect_Valid(){
             using (var sw = new StringWriter()){
                 Console.SetOut(sw);
-                SimpleShop.Main(new string[] { "D:\\WIP\\00_Akademic_TUM_ITBE\\1. Semester\\Professional Software Engineering\\Lecture 4\\Assignment2\\SimpleShop.Test\\SampleOrder.tag" }); // change this to path of your SampleOrder.tag file
+                SimpleShop.Main(new string[] { "C:\\Users\\sagir\\Desktop\\TUM_Professional_Software_Engineering\\Lecture 4\\Assignment2\\SimpleShop.Test\\SampleOrder.tag" }); // change this to path of your SampleOrder.tag file
 
                 var output = sw.ToString();
                 var kirk_burger = output.IndexOf("James T. Kirk, Burger, 2, 19.04", StringComparison.Ordinal) >= 0;
