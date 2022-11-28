@@ -8,6 +8,7 @@ namespace SimpleShop.Test
     public class ToBeWritten{
         private InvoicePosition invoicePosition;
         private KeywordPair[] pairs;
+        string filePath = "D:\\WIP\\00_Akademic_TUM_ITBE\\1. Semester\\Professional Software Engineering\\Lecture 4\\Assignment2\\SimpleShop.Test\\SampleOrder.tag"; // Filepath needs to be set.
 
         [SetUp]
         public void Setup(){
@@ -169,7 +170,7 @@ namespace SimpleShop.Test
         public void FullProgram_OutputCorrect_Valid(){
             using (var sw = new StringWriter()){
                 Console.SetOut(sw);
-                SimpleShop.Main(new string[] { "C:\\Users\\sagir\\Desktop\\TUM_Professional_Software_Engineering\\Lecture 4\\Assignment2\\SimpleShop.Test\\SampleOrder.tag" }); // change this to path of your SampleOrder.tag file
+                SimpleShop.Main(new string[] { filePath }); // change this to path of your SampleOrder.tag file
 
                 var output = sw.ToString();
                 var kirk_burger = output.IndexOf("James T. Kirk, Burger, 2, 19.04", StringComparison.Ordinal) >= 0;

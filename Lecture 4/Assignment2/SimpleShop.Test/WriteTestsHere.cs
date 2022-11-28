@@ -7,6 +7,8 @@ namespace SimpleShop.Test
 {
     public class Tests
     {
+        string filePath = "D:\\WIP\\00_Akademic_TUM_ITBE\\1. Semester\\Professional Software Engineering\\Lecture 4\\Assignment2\\SimpleShop.Test\\SampleOrder.tag"; // Filepath needs to be set.
+
         /* test b was here*/
         [SetUp]
 
@@ -115,7 +117,7 @@ namespace SimpleShop.Test
             ShopParser testParser = new ShopParser();
             testParser.SetKeywords(testKeywordArray);
 
-            var mysample = SimpleShop.ReadFileLineByLine("C:\\Users\\sagir\\Desktop\\TUM_Professional_Software_Engineering\\Lecture 4\\Assignment2\\SimpleShop.Test\\SampleOrder.tag");
+            var mysample = SimpleShop.ReadFileLineByLine(filePath);
 
             var myFindings = ShopParser.ExtractFromTAG(testParser, String.Join(mysample[0], mysample[1], mysample[2]));
 
@@ -148,7 +150,7 @@ namespace SimpleShop.Test
             ShopParser testParser = new ShopParser();
             testParser.SetKeywords(testKeywordArray);
 
-            var mysample = SimpleShop.ReadFileLineByLine("C:\\Users\\sagir\\Desktop\\TUM_Professional_Software_Engineering\\Lecture 4\\Assignment2\\SimpleShop.Test\\SampleOrder.tag");
+            var mysample = SimpleShop.ReadFileLineByLine(filePath);
 
             var myFindings = ShopParser.ExtractFromTAG(testParser, String.Join(mysample[0], mysample[1], mysample[2]));
 
@@ -182,7 +184,7 @@ namespace SimpleShop.Test
             testParser.SetKeywords(testKeywordArray);
 
 
-            var mysample = SimpleShop.ReadFileLineByLine("C:\\Users\\sagir\\Desktop\\TUM_Professional_Software_Engineering\\Lecture 4\\Assignment2\\SimpleShop.Test\\SampleOrder.tag");
+            var mysample = SimpleShop.ReadFileLineByLine(filePath);
 
 
             var myFindings = ShopParser.ExtractFromTAG(testParser, String.Join(mysample[0], mysample[1], mysample[2]));
@@ -210,7 +212,7 @@ namespace SimpleShop.Test
             ShopParser testParser = new ShopParser();
             testParser.SetKeywords(testKeywordArray);
 
-            var mysample = SimpleShop.ReadFileLineByLine("C:\\Users\\sagir\\Desktop\\TUM_Professional_Software_Engineering\\Lecture 4\\Assignment2\\SimpleShop.Test\\SampleOrder.tag");
+            var mysample = SimpleShop.ReadFileLineByLine(filePath);
 
             var myFindings = ShopParser.ExtractFromTAG(testParser, string.Join(" ", mysample));
 
@@ -235,7 +237,7 @@ namespace SimpleShop.Test
             ShopParser testParser = new ShopParser();
             testParser.SetKeywords(testKeywordArray);
 
-            var mysample = SimpleShop.ReadFileLineByLine("C:\\Users\\sagir\\Desktop\\TUM_Professional_Software_Engineering\\Lecture 4\\Assignment2\\SimpleShop.Test\\SampleOrder.tag");
+            var mysample = SimpleShop.ReadFileLineByLine(filePath);
 
             var myFindings = ShopParser.ExtractFromTAG(testParser, mysample.First());
 
