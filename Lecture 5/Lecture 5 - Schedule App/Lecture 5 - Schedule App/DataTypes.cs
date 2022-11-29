@@ -17,10 +17,10 @@ namespace ProSE
     }
     public class Lecture
     {
-        public string startTime; 
-        public string endTime;
-        public string lectureName;
-        public Days lectureDay; 
+        public string startTime { get; set; }
+        public string endTime { get; set; }
+        public string lectureName { get; set; }
+        public Days lectureDay {get; set; }
         
         private Lecture(string startTime, string endTime, string lectureName, Days lectureDay)
         {
@@ -29,15 +29,18 @@ namespace ProSE
             this.lectureName = lectureName;
             this.lectureDay = lectureDay;
         }
-        public static Lecture[] GetLectures(string filePath)
+        public static Lecture GetLectures(string filePath)
         {
             XmlTextReader reader = new XmlTextReader(filePath);
+            
             while (reader.Read())
             {
+
                 switch (reader.NodeType)
                 {
                     case XmlNodeType.Element: // The node is an element.
-                        Console.Write("<" + reader.Name);
+                        Console.Write(reader.Name);
+                        Console.Write(reader.GetType());
                         Console.WriteLine(">");
                         break;
 
@@ -49,16 +52,20 @@ namespace ProSE
                         Console.Write("</" + reader.Name);
                         Console.WriteLine(">");
                         break;
+                
+                XmlNode 
+                
                 }
+
                 
             }
-            Lecture[] lectures = new Lecture();
+            Lecture lectures = new Lecture("x","x0","x",Days.Monday);
             return lectures;
         }
-        public string GetRows()
-        {
-            switch();
-        }
+        //public string GetRows()
+        //{
+        //    switch();
+        //}
     }
         public class Timetable
         {
