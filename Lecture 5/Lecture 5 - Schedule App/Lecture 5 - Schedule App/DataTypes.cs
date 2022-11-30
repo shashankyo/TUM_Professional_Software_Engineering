@@ -32,21 +32,23 @@ namespace ProSE
             this.lectureName = lectureName;
             this.lectureDay = lectureDay;
 
-            bool isValidStart = DateTime.TryParse(startTime, out _);
-            bool isValidEnd = DateTime.TryParse(endTime, out _);
+            this.startTime = startTime;
+            this.endTime = endTime;
+            //bool isValidStart = DateTime.TryParse(startTime, out _);
+            //bool isValidEnd = DateTime.TryParse(endTime, out _);
 
-            if (isValidStart && isValidEnd)
-            {
-                this.startTime = startTime;
-                this.endTime   = endTime;
-            }
-            else
-            {
-                Console.WriteLine("Invalid Time. Setting time from 12:00 to 1:00 am");
+            //if (isValidStart && isValidEnd)
+            //{
+            //    this.startTime = startTime;
+            //    this.endTime = endTime;
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Invalid Time. Setting time from 12:00 to 1:00 am");
 
-                this.startTime = "12:00 AM";
-                this.endTime = "1:00 AM";
-            }
+            //    this.startTime = "12:00 AM";
+            //    this.endTime = "1:00 AM";
+            //}
 
         }
         public static Lecture GetLectures(XmlNode lecture)
@@ -93,7 +95,7 @@ namespace ProSE
         public static Timetable SetupFromXML(string filePath)
         {
             var scheduleXML = new XmlDocument();
-            scheduleXML.LoadXml(filePath);
+            scheduleXML.Load(filePath);
 
             var lectureNodes = scheduleXML.DocumentElement.ChildNodes;
 
@@ -108,8 +110,45 @@ namespace ProSE
 
             return timetable;
         }
+
+        public void GetSchedule()
+        {
+            foreach (Days day in Enum.GetValues(typeof(Days)))
+            {
+                System.Console.WriteLine($"Lectures on {day}:\n");
+
+                GetScheduleOfDay(day);
+
+                System.Console.WriteLine("----------------------------------------------");
+            }
+        }
+
+        public void GetScheduleOfDay(Days day)
+        {
+            bool isFreeDay = true;
+
+            foreach (var lecture in this.Schedule)
+            {
+                if (lecture.lectureDay == day)
+                {
+                    isFreeDay = false;
+
+                    this.PrintLecture(lecture);
+                }
+            }
+
+            if (isFreeDay)
+            {
+                System.Console.WriteLine($"No lectures on {day}");
+            }
+        }
+
+        private void PrintLecture(Lecture lecture)
+        {
+            System.Console.WriteLine($"Name:\t {lecture.lectureName}");
+            System.Console.WriteLine($"Start Time:\t {lecture.startTime}");
+            System.Console.WriteLine($"End Time:\t {lecture.endTime}");
+            System.Console.WriteLine("\n");
+        }
     }
-
-
-
 }

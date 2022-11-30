@@ -12,8 +12,8 @@ namespace ProSE
             // File Path
             string filePath = "D:\\WIP\\00_Akademic_TUM_ITBE\\1. Semester\\Professional Software Engineering\\Lecture 5\\Lecture 5 - Schedule App\\Lecture 5 - Schedule App\\Koray_Inal_Terminkalender_Woche.xml";
 
-            Lecture.Set(filePath);
-            Lecture.GetLectures(filePath);
+            Timetable myTable = Timetable.SetupFromXML(filePath);
+            myTable.GetSchedule();
 
         }
     }
