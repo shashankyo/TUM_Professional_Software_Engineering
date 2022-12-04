@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schedule App - SecondTry", "Schedule App - SecondTry\Schedule App - SecondTry.csproj", "{389E539D-D79D-4FBC-A5BC-568686D93D60}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{389E539D-D79D-4FBC-A5BC-568686D93D60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{389E539D-D79D-4FBC-A5BC-568686D93D60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{389E539D-D79D-4FBC-A5BC-568686D93D60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{389E539D-D79D-4FBC-A5BC-568686D93D60}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1C1FD890-006D-4E14-94FC-E3E83A521BE0}
+	EndGlobalSection
+EndGlobal
