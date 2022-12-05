@@ -6,10 +6,10 @@ namespace ProSE
 {
     class Lecture
     {
-        string StartTime { get; set; }
-        string EndTime { get; set; }
-        DaysOfTheWeek Day { get; set; }
-        string Name { get; set; }
+        public string StartTime { get; set; }
+        public string EndTime { get; set; }
+        public DaysOfTheWeek Day { get; set; }
+        public string Name { get; set; }
 
         private Lecture() { }
 
