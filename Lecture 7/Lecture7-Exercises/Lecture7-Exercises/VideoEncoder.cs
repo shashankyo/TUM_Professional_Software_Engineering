@@ -31,6 +31,7 @@ namespace ProSE
             Thread.Sleep(3000);
 
             OnVideoEncoded(video);
+
         }
         protected virtual void OnVideoEncoded(Video video)
         {

@@ -1,12 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Lecture7_ExercisesLast
+namespace ProSE
 {
-    internal class Delegates
+    public class Delegates
     {
+
+        public delegate void AdditionHandler(object source, EventArgs args);
+
+        //public event AdditionHandler<Type> AdditonHandled;
+
+        public Type Add(Type firstArg, Type secondArg)
+        {
+            return null;
+        }
+
     }
 }
