@@ -1,10 +1,11 @@
 ﻿using System;
 namespace ProSE
 {
+    public delegate void AdditionHandler(Type firstArg, Type secondArg);
+
     public class Delegates
     {
 
-        public delegate void AdditionHandler(object source, EventArgs args);
 
         //public event AdditionHandler<Type> AdditonHandled;
 
