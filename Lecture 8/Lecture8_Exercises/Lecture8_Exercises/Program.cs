@@ -7,20 +7,23 @@ namespace ProSE
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Test ...");
-
             string filePath = "pokedex.xml";
 
             var listOfPokemons = HelperFunctions.ExtractFromXML(filePath);
 
-            foreach (var pokemon in listOfPokemons)
+            var myPokedex = new Pokedex(listOfPokemons);
+
+            var flyingTypes = from pokemon in myPokedex.Pokemons
+                             where pokemon.Type.Contains("FLYING")
+                             orderby pokemon.Species
+                             select pokemon;
+
+            //myPokedex.PrintPokemons();
+
+            foreach (var flyingType in flyingTypes)
             {
-                Console.WriteLine("----");
-                Console.WriteLine("Species:");
-                Console.WriteLine(pokemon.Species);
-                Console.WriteLine("Type:");
-                Console.WriteLine(pokemon.Type);
-                Console.WriteLine("----");
+                Console.WriteLine(flyingType.Species);
+                DatabaseFramework.AddPokemon(flyingType);
             }
 
         }

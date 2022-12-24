@@ -8,7 +8,7 @@ namespace ProSE
 {
     public class ListenerTrafficLight
     {
-        public bool hasGreen;
+        public bool hasGreen { get; set; }
         public void OnButtonPressed(object o, EventArgs e)
         {
             Console.WriteLine("Traffic lights has received the button message...");

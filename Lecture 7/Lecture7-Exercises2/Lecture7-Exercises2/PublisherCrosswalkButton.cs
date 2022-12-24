@@ -36,24 +36,4 @@ namespace ProSE
         }
 
     }
-    //public class TrafficLight
-    //{
-    //    public bool hasGreen { get; set; }
-
-    //    public TrafficLight(bool hasGreen)
-    //    {
-    //        this.hasGreen = hasGreen;
-    //    }
-    //}
-
-
-    //public class CrosswalkLight
-    //{
-    //    public bool hasGreen { get; set; }
-    //    public CrosswalkLight(bool hasGreen)
-    //    {
-    //        this.hasGreen = hasGreen;
-    //    }
-    //}
-
 }

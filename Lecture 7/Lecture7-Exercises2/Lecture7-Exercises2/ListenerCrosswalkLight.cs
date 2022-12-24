@@ -8,7 +8,7 @@ namespace ProSE
 {
     public class ListenerCrosswalkLight
     {
-        public bool hasGreen = true;
+        public bool hasGreen { get; set; } = true;
         public void OnButtonPressed(object o, EventArgs e)
         {
             Console.WriteLine("Crosswalk lights has received the button message...");

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
+
 namespace ProSE
 {
     public class HelperFunctions
@@ -17,7 +18,6 @@ namespace ProSE
             var pokemonXML = new XmlDocument();
             pokemonXML.Load(filePath);
 
-            //TODO take all the lectures from xml and pushback --> timetable
 
             var pokemonNodes = pokemonXML.DocumentElement.ChildNodes;
 
