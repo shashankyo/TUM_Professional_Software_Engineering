@@ -4,7 +4,7 @@ Professional Software Enginering Course - Technical University of Munich
 C# Coarse given at Technical University of Munich
 
 Lecture 1 - Introduction to C#, Data Types  
-/n Lecture 2 - Object Oriented Programming, Inheritance, Abstract Classes  
+Lecture 2 - Object Oriented Programming, Inheritance, Abstract Classes  
 Lecture 3 - Interfaces, Git, NUnit Testing, Test Driven Development  
 Lecture 4 - Generics, Data Structures Array, List, Queue, Stack, Hashtables  
 Lecture 5 - Working with XML Files  
