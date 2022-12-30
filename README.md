@@ -1,7 +1,7 @@
 # TUM_Professional_Software_Engineering
 Professional Software Enginering Course - Technical University of Munich
 
-C# Coarse given at Technical University of Munich
+C# Course given at Technical University of Munich
 
 Lecture 1 - Introduction to C#, Data Types  
 Lecture 2 - Object Oriented Programming, Inheritance, Abstract Classes  
