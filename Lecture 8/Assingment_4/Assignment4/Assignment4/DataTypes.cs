@@ -1,22 +1,30 @@
-﻿using System;
+﻿using ProSE;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using static ProSE.SetUp;
 
 namespace ProSE
 {
-
-    public class SetUp
+    public class User
     {
         public string Name { get; set; }
 
+        public User(string Name)
+        {
+            this.Name = Name;
+        }
+    }
+    public class SetUp
+    {
+        public string Name { get; set; }
         public List<User> Users { get; set; }
-
+        public Dictionary<User, decimal> debtMatrix = new Dictionary<User, decimal>();
         public int NumberOfUsers { get; set; }
-
         public List<Expense> Expenses { get; set; }
         public SetUp(string Name, List<User> Users)
         {
@@ -25,58 +33,39 @@ namespace ProSE
             this.NumberOfUsers = Users.Count;
             this.Expenses = new List<Expense>();
         }
-        //public List<User> GetUserList()
-        //{
-        //    List<User> userList = new List<User>();
-
-        //    return userList;
-        //}
-        public List<User> AddUser(User user1)
+        public void AddUser(User user)
         {
-            List<User> userList = new List<User>();
-            userList.Add(user1);
-            return userList;
+            // Add the participant to the list of participants
+            Users.Add(user);
+            // Initialize the participant's debt to zero
+            debtMatrix.Add(user, 0);
         }
-        public double TotalExpenses()
+        public class Expense
         {
-            float SumOfExpenses = 0;
-            foreach (Expense expense in Expenses)
+            public string Name { get; set; }
+            public decimal Amount { get; set; }
+            public User Owner { get; set; }
+            public List<User> Payees { get; set; } = new List<User>();
+            public Expense(string name, decimal amount, User owner)
             {
-                SumOfExpenses = SumOfExpenses + expense.Amount;
+                Name = name;
+                Amount = amount;
+                Owner = owner;
             }
-            return SumOfExpenses;
         }
-        public int GetUserCount()
+        public void AddExpense(Expense expense)
         {
-            return Users.Count;
-        }
-        public double TotalShareOfExpenses()
-        {
-            double a = 0;
-
-            a= TotalExpenses()/ this.NumberOfUsers;
-            return a;
-        }
-        public void UserOwesOwner(Expense expense)
-        {
-            List<User> otherUsers = new List<User>();
-            foreach(var i in this.Users)
+            List<User> otherUsers = OtherUsers(expense);
+            expense.Payees = otherUsers;
+            Expenses.Add(expense);
+            // Add the expense amount to the payer's debt
+            AddDebt(expense.Owner, -expense.Amount);
+            // Divide the expense amount among the payees and add it to their debt
+            decimal share = expense.Amount / otherUsers.Count;
+            foreach (var payee in otherUsers)
             {
-                if (i != expense.Owner)
-                {
-                    otherUsers.Add(i);
-                }
-                else
-                {  
-                }
+                AddDebt(payee, share);
             }
-            float eachShare = expense.Amount / this.NumberOfUsers;
-
-            foreach (var i in otherUsers)
-            {
-                Console.WriteLine($"{i.Name} owes {expense.Owner.Name} {eachShare}");
-            }
-
         }
         public List<User> OtherUsers(Expense expense)
         {
@@ -90,109 +79,74 @@ namespace ProSE
             }
             return otherUsers;
         }
-        public List<User> OtherUsers(User user)
+        private void AddDebt(User participant, decimal amount)
         {
-            List<User> otherUsers = new List<User>();
-            foreach (var i in this.Users)
+            // Check if the participant is already in the debtMatrix
+            if (debtMatrix.ContainsKey(participant))
             {
-                if (i != user)
-                {
-                    otherUsers.Add(i);
-                }
-            }
-            return otherUsers;
-        }
-        public float EachShare(Expense expense)
-        {
-            float eachShare = expense.Amount / this.NumberOfUsers;
-            return eachShare;
-        }
-        public float TotalEachShare(List<Expense> expenses)
-        {
-            float totalAmount = 0;
-            foreach (var i in expenses)
-            {
-                totalAmount = totalAmount + i.Amount;
-            }
-            float totalEachShare = totalAmount / this.NumberOfUsers;
-            return totalEachShare;
-        }
-        public void UserStatus(User user)
-        {
-            double hasPaid = 0;
-            foreach(var i in this.Expenses)
-            {
-                if( i.Owner == user)
-                {
-                    hasPaid = hasPaid + i.Amount;
-                }
-            }
-            Console.WriteLine($"{user.Name} has paid {hasPaid} his share was {TotalEachShare(this.Expenses)}");
-            double theDifference = hasPaid - TotalEachShare(this.Expenses);
-            if (theDifference > 0)
-            {
-                Console.WriteLine($"{user.Name} has been owed {theDifference}");
-
-                var differenceShare = theDifference / this.NumberOfUsers;
-                var a = OtherUsers(user);
-                foreach (var i in a)
-                {
-                    Console.WriteLine($"{i.Name} owes {differenceShare}");
-                }
-                
+                debtMatrix[participant] += amount;
             }
             else
             {
-                Console.WriteLine($"{user.Name} owes someone {Math.Abs(theDifference)}");
+                debtMatrix.Add(participant, amount);
             }
         }
-        public void CurrentStand(List<User> users)
+        public List<Tuple<string, string, decimal>> SettleDebt()
         {
-            foreach(var i in users)
+            List<Tuple<string, string, decimal>> transactions = new List<Tuple<string, string, decimal>>();
+
+            // sort the dictionary by debt
+            var debtList = debtMatrix.OrderBy(d => Math.Abs(d.Value)).ToList();
+
+            for (int i = 0; i < debtList.Count; i++)
             {
-                UserStatus(i);
+                for (int j = i + 1; j < debtList.Count; j++)
+                {
+                    var payer = debtList[i];
+                    var payee = debtList[j];
+                    decimal amount = Math.Min(Math.Abs(payer.Value), payee.Value);
+                    // only pay if payer owe more than 0
+                    if (amount > 0)
+                    {
+                        // add transaction
+                        transactions.Add(new Tuple<string, string, decimal>(payer.Key.Name, payee.Key.Name, amount));
+                        debtMatrix[payer.Key] += amount;
+                        debtMatrix[payee.Key] -= amount;
+                    }
+                }
             }
+            return transactions;
         }
-
-        //public static SetUp CreateSetUp(string Name, List<User> Users)
-        //{
-        //    SetUp setup = new SetUp();
-        //    Name = setup.Name;
-        //    Users = setup.Users;
-        //    return setup;
-        //}
-        // WIP
-        //public SetUp CreateSetUp()
-        //{
-
-        //    SetUp newSetup = new SetUp();
-
-        //    return newSetup;
-        //}
-
-    }
-    public class User
-    {
-        public string Name { get; set; }
-        
-        public User(string Name)
+        public class Payment
         {
-            this.Name = Name;
+            public User Payer { get; set; }
+
+            public User Payee { get; set; }
+
+            public decimal Amount { get; set; }
+            
+            public Payment(User payer, User payee, decimal amount)
+            {
+                this.Payer = payer;
+                this.Payee = payee;
+                this.Amount = amount;
+            }
+
         }
-    }
-    public class Expense
-    {
-        public string Name { get; set; }
-        public float Amount { get; set; }
-
-        public User Owner { get; set; }
-
-        public Expense(string name, float amount, User owner)
+        public void AddPayment(Payment payment)
         {
-            Name = name;
-            Amount = amount;
-            Owner = owner;
-   
+            this.debtMatrix[payment.Payer] += -payment.Amount;
+            this.debtMatrix[payment.Payee] += payment.Amount;
+            //if (debtMatrix.ContainsKey(payment.Payee) && debtMatrix.ContainsKey(payment.Payer))
+            //{
+            //    debtMatrix[payment.Payer] += -payment.Amount;
+            //    debtMatrix[payment.Payee] += payment.Amount;
+            //}
+            //else
+            //{
+            //    debtMatrix.Add(payment.Payer, -payment.Amount);
+            //    debtMatrix.Add(payment.Payee, payment.Amount);
+            //}
         }
     }
 }
