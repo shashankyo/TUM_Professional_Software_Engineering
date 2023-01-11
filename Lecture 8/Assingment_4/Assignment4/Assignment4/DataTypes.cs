@@ -1,6 +1,7 @@
 ﻿using ProSE;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 using System.Runtime.CompilerServices;
@@ -18,6 +19,7 @@ namespace ProSE
         {
             this.Name = Name;
         }
+
     }
     public class SetUp
     {
@@ -33,6 +35,7 @@ namespace ProSE
             this.NumberOfUsers = Users.Count;
             this.Expenses = new List<Expense>();
         }
+
         public void AddUser(User user)
         {
             // Add the participant to the list of participants
@@ -58,9 +61,12 @@ namespace ProSE
             List<User> otherUsers = OtherUsers(expense);
             expense.Payees = otherUsers;
             Expenses.Add(expense);
+
             // Add the expense amount to the payer's debt
+            // negative values means that the user is owed
             AddDebt(expense.Owner, -expense.Amount);
             // Divide the expense amount among the payees and add it to their debt
+            // positive values means the user owes someone
             decimal share = expense.Amount / otherUsers.Count;
             foreach (var payee in otherUsers)
             {
@@ -91,32 +97,72 @@ namespace ProSE
                 debtMatrix.Add(participant, amount);
             }
         }
-        public List<Tuple<string, string, decimal>> SettleDebt()
+
+        public void CurrentStatus()
         {
-            List<Tuple<string, string, decimal>> transactions = new List<Tuple<string, string, decimal>>();
+            Console.WriteLine("---------------------");
+            Console.WriteLine("-Current Debt Status-");
+            Console.WriteLine("---------------------");
 
-            // sort the dictionary by debt
-            var debtList = debtMatrix.OrderBy(d => Math.Abs(d.Value)).ToList();
-
-            for (int i = 0; i < debtList.Count; i++)
+            foreach (var i in debtMatrix)
             {
-                for (int j = i + 1; j < debtList.Count; j++)
+                if (i.Value >= 0)
                 {
-                    var payer = debtList[i];
-                    var payee = debtList[j];
-                    decimal amount = Math.Min(Math.Abs(payer.Value), payee.Value);
-                    // only pay if payer owe more than 0
-                    if (amount > 0)
-                    {
-                        // add transaction
-                        transactions.Add(new Tuple<string, string, decimal>(payer.Key.Name, payee.Key.Name, amount));
-                        debtMatrix[payer.Key] += amount;
-                        debtMatrix[payee.Key] -= amount;
-                    }
+                    Console.WriteLine($"{i.Key.Name} owes {Math.Abs(i.Value)} euro");
+                }
+                else if (i.Value < 0)
+                {
+                    Console.WriteLine($"{i.Key.Name} is owed {Math.Abs(i.Value)} euro");
+
                 }
             }
-            return transactions;
         }
+
+        public void ToSettle()
+        {
+            // Grouping the debtors and creditors
+            var owed = new List<(User, decimal)>();
+            var owes = new List<(User, decimal)>();
+
+            foreach (var item in debtMatrix)
+            {
+                if (item.Value < 0)
+                    owed.Add((item.Key, item.Value));
+                else
+                    owes.Add((item.Key, item.Value));
+            }
+
+
+            // Sorting the lists
+            owed = owed.OrderByDescending(t => Math.Abs(t.Item2)).ToList();
+            owes = owes.OrderByDescending(t => t.Item2).ToList();
+
+
+            // Check This part later!!
+            var settledTransactions = new List<(User, User, decimal)>();
+            int i = 0;
+            int j = 0;
+            while (i < owed.Count && j < owes.Count)
+            {
+                decimal amount = Math.Min(Math.Abs(owed[i].Item2), owes[j].Item2);
+                if (amount > 0)
+                {
+                    settledTransactions.Add((owed[i].Item1, owes[j].Item1, amount));
+                    owed[i] = (owed[i].Item1, owed[i].Item2 + amount);
+                    owes[j] = (owes[j].Item1, owes[j].Item2 - amount);
+                    if (owes[j].Item2 == 0)
+                        j++;
+                    if (owed[i].Item2 == 0)
+                        i++;
+                }
+            }
+            Console.WriteLine("Settled Transactions are:");
+            foreach (var trans in settledTransactions)
+            {
+                Console.WriteLine("From: " + trans.Item2.Name + "  To: " + trans.Item1.Name + "  Amount: " + trans.Item3);
+            }
+        }
+
         public class Payment
         {
             public User Payer { get; set; }
@@ -124,7 +170,7 @@ namespace ProSE
             public User Payee { get; set; }
 
             public decimal Amount { get; set; }
-            
+
             public Payment(User payer, User payee, decimal amount)
             {
                 this.Payer = payer;
@@ -135,18 +181,17 @@ namespace ProSE
         }
         public void AddPayment(Payment payment)
         {
-            this.debtMatrix[payment.Payer] += -payment.Amount;
-            this.debtMatrix[payment.Payee] += payment.Amount;
-            //if (debtMatrix.ContainsKey(payment.Payee) && debtMatrix.ContainsKey(payment.Payer))
-            //{
-            //    debtMatrix[payment.Payer] += -payment.Amount;
-            //    debtMatrix[payment.Payee] += payment.Amount;
-            //}
-            //else
-            //{
-            //    debtMatrix.Add(payment.Payer, -payment.Amount);
-            //    debtMatrix.Add(payment.Payee, payment.Amount);
-            //}
+
+            if (debtMatrix.ContainsKey(payment.Payee) && debtMatrix.ContainsKey(payment.Payer))
+            {
+                debtMatrix[payment.Payer] += -payment.Amount;
+                debtMatrix[payment.Payee] += payment.Amount;
+            }
+            else
+            {
+                debtMatrix.Add(payment.Payer, -payment.Amount);
+                debtMatrix.Add(payment.Payee, payment.Amount);
+            }
         }
     }
 }

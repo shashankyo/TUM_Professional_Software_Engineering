@@ -33,40 +33,48 @@ namespace ProSE
             hamburgSetup.AddExpense(beers);
             hamburgSetup.AddExpense(guitars);
 
-            //Console.WriteLine(hamburgSetup.GetTransactions());
             foreach (var a in hamburgSetup.debtMatrix)
             {
                 Console.WriteLine(a.Key.Name);
                 Console.WriteLine(a.Value);
             }
 
+            hamburgSetup.CurrentStatus();
 
-            var list = hamburgSetup.SettleDebt();
+
+            //var list = hamburgSetup.SettleDebt();
+
+            //Console.WriteLine("---------------------");
+            //Console.WriteLine("---------------------");
+            //Console.WriteLine("to settle the debts");
+            //foreach (var a in list)
+            //{
+            //    Console.WriteLine($"{a.Item1} owes {a.Item2} {a.Item3} euro ");
+            //}
 
             Console.WriteLine("---------------------");
             Console.WriteLine("---------------------");
-            Console.WriteLine("to settle the debts");
-            foreach (var a in list)
-            {
-                Console.WriteLine($"{a.Item1} owes {a.Item2} {a.Item3} euro ");
-            }
-            SetUp.Payment georgePayment = new SetUp.Payment(userGeorge, userJohn, 100);
-            SetUp.Payment georgePayment2 = new SetUp.Payment(userGeorge, userRingo, 100);
-            SetUp.Payment georgePayment3 = new SetUp.Payment(userJohn, userRingo, 1100);
+            Console.WriteLine("new method Settle Debts");
+            hamburgSetup.ToSettle();
+
+            SetUp.Payment georgePayment = new SetUp.Payment(userJohn, userPaul, 1100);
+            SetUp.Payment georgePayment2 = new SetUp.Payment(userRingo, userPaul, 1000);
+            //SetUp.Payment georgePayment3 = new SetUp.Payment(userJohn, userRingo, 1100);
 
             hamburgSetup.AddPayment(georgePayment);
             hamburgSetup.AddPayment(georgePayment2);
-            hamburgSetup.AddPayment(georgePayment3);
+            //hamburgSetup.AddPayment(georgePayment3);
 
-            var list2 = hamburgSetup.SettleDebt();
 
             Console.WriteLine("---------------------");
             Console.WriteLine("---------------------");
             Console.WriteLine("after payment");
-            foreach (var a in list2)
-            {
-                Console.WriteLine($"{a.Item1} owes {a.Item2} {a.Item3} euro ");
-            }
+            hamburgSetup.ToSettle();
+
+            //foreach (var a in list2)
+            //{
+            //    Console.WriteLine($"{a.Item1} owes {a.Item2} {a.Item3} euro ");
+            //}
             //foreach (var a in hamburgSetup.Users)
             //{
             //    Console.WriteLine(a.Name);
