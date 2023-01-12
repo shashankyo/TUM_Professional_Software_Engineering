@@ -27,7 +27,10 @@ namespace ProSE
             • To Settle
             • Create Payment / Add Payment
             */
-            Console.WriteLine("hello");
+
+            Console.WriteLine("----------------------");
+            Console.WriteLine("-- Expense Splitter --");
+            Console.WriteLine("----------------------");
 
             User userJohn = new User("John");
             User userPaul = new User("Paul");
@@ -61,20 +64,9 @@ namespace ProSE
 
             hamburgSetup.CurrentStatus();
 
-
-            //var list = hamburgSetup.SettleDebt();
-
-            //Console.WriteLine("---------------------");
-            //Console.WriteLine("---------------------");
-            //Console.WriteLine("to settle the debts");
-            //foreach (var a in list)
-            //{
-            //    Console.WriteLine($"{a.Item1} owes {a.Item2} {a.Item3} euro ");
-            //}
-
             Console.WriteLine("---------------------");
             Console.WriteLine("---------------------");
-            Console.WriteLine("new method Settle Debts");
+
             hamburgSetup.ToSettle();
 
             SetUp.Payment georgePayment = new SetUp.Payment(userJohn, userPaul, 1100);
@@ -91,6 +83,23 @@ namespace ProSE
             Console.WriteLine("after payment");
             hamburgSetup.ToSettle();
 
+            
+            Console.WriteLine("---------------------");
+            foreach(var i in hamburgSetup.debtMatrix)
+            {
+                
+                DatabaseFramework.AddUserDebtStatus(UserDebtStatus.CreateDebtStatus(i));
+            }
+
+
+            Console.WriteLine("---------------------");
+
+            // DatabaseFramework.AddDebtMatrix(hamburgSetup.debtMatrix);
+
+
+            // Create a database
+            // dotnet ef migrations add InitialCreate
+            // dotnet ef database update
         }
     }
 }

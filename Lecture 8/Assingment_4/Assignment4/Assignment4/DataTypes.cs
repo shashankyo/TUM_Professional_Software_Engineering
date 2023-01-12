@@ -1,10 +1,12 @@
 ﻿using ProSE;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using static ProSE.SetUp;
@@ -193,5 +195,35 @@ namespace ProSE
                 debtMatrix.Add(payment.Payee, payment.Amount);
             }
         }
+    }
+
+    public class UserDebtStatus
+    {
+        public int Id { get; set; }
+        public string UserName { get; set; }
+
+        public decimal DebtStatus { get; set; }
+
+        //public string SetUpName { get; set; }
+
+        public UserDebtStatus(string userName, decimal debtStatus)
+        {
+            UserName = userName;
+
+            DebtStatus = debtStatus;
+        }
+
+        public static UserDebtStatus CreateDebtStatus(KeyValuePair<User, decimal> a)
+        {
+            //string a = Di
+
+            string username = a.Key.Name;
+            decimal debt = a.Value;
+            
+            UserDebtStatus userDebtStatus = new UserDebtStatus(username, debt);
+            return userDebtStatus;
+            
+        }
+
     }
 }
