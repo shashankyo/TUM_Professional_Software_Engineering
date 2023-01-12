@@ -7,6 +7,26 @@ namespace ProSE
     {
         static void Main(string[] args)
         {
+
+            /*
+             *
+             -- Assignment Objectives --
+             * 1. Console Application, containing the following:
+                • Main class and method
+            -- Our Response --
+            •Program Section of the Solution
+
+                • Five functions that follow the use-cases you identified in Task 1. These functions should be
+                    called in your main method 
+
+            -- Our Response --
+            • Create User / Add User
+            • Create Setup
+            • Create Expense / Add Expense
+            • CurrentStatus (Current Debt Status, who owes who and how much...)
+            • To Settle
+            • Create Payment / Add Payment
+            */
             Console.WriteLine("hello");
 
             User userJohn = new User("John");
@@ -71,31 +91,6 @@ namespace ProSE
             Console.WriteLine("after payment");
             hamburgSetup.ToSettle();
 
-            //foreach (var a in list2)
-            //{
-            //    Console.WriteLine($"{a.Item1} owes {a.Item2} {a.Item3} euro ");
-            //}
-            //foreach (var a in hamburgSetup.Users)
-            //{
-            //    Console.WriteLine(a.Name);
-            //}
-
-            //Console.WriteLine(hamburgSetup.NumberOfUsers);
-            //Console.WriteLine(hamburgSetup.TotalExpenses()); 
-            //Console.WriteLine(hamburgSetup.TotalShareOfExpenses());
-            //hamburgSetup.UserOwesOwner(planeTickets);
-            //hamburgSetup.UserStatus(userPaul);
-            //hamburgSetup.CurrentStand(hamburgSetup.Users);
-
-            //foreach(User user in userList)
-            //{
-            //    Console.WriteLine(user.Name);
-            //}
-            //SetUp Hamburg = SetUp.CreateSetUp("Hamburg", userList);
-            //foreach (var user in Hamburg.Users)
-            //{
-            //    Console.WriteLine(user.Name);
-            //}
         }
     }
 }

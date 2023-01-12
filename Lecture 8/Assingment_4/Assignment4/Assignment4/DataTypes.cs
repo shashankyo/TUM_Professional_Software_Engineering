@@ -156,7 +156,7 @@ namespace ProSE
                         i++;
                 }
             }
-            Console.WriteLine("Settled Transactions are:");
+            Console.WriteLine("To settle the debts:");
             foreach (var trans in settledTransactions)
             {
                 Console.WriteLine("From: " + trans.Item2.Name + "  To: " + trans.Item1.Name + "  Amount: " + trans.Item3);
