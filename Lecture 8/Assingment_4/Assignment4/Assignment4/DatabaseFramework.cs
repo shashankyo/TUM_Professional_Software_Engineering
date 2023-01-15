@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,17 +11,15 @@ namespace ProSE
 {
     public class DatabaseFramework
     {
-        //public static void AddSetup(SetUp setup)
-        //{
-        //    using (var context = new SetupContext())
-        //    {
-        //        context.Setups.Add(setup);
-        //        context.SaveChanges();
-        //    }
-        //}
+
         public static void AddUserDebtStatus(UserDebtStatus userDebtStatus)
         {
-            using (var context = new SetupContext())
+
+            // Create a database
+            // dotnet ef migrations add InitialCreate
+            // dotnet ef database update
+
+            using (var context = new UserDebtStatusContext())
             {
                 context.DebtStatuses.Add(userDebtStatus);
                 context.SaveChanges();

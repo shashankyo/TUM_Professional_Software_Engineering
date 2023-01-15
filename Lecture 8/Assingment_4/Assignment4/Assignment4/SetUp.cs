@@ -1,28 +1,13 @@
-﻿using ProSE;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
+using System.Data.Common;
 using System.Linq;
-using System.Numerics;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
-using static ProSE.SetUp;
-
 namespace ProSE
 {
-    public class User
-    {
-        public string Name { get; set; }
-
-        public User(string Name)
-        {
-            this.Name = Name;
-        }
-
-    }
     public class SetUp
     {
         public string Name { get; set; }
@@ -119,6 +104,38 @@ namespace ProSE
                 }
             }
         }
+        public void TotalCost()
+        {
+            Console.WriteLine("---------------------");
+            Console.WriteLine("-Total Cost of Setup-");
+            Console.WriteLine("---------------------");
+
+            decimal totalCost = 0;
+
+            foreach (var i in Expenses)
+            {
+                totalCost += i.Amount;
+            }
+
+            Console.WriteLine($"Total Cost of {this.Name} is {totalCost}");
+        }
+        public void CostForEachUser()
+        {
+            Console.WriteLine("----------------------");
+            Console.WriteLine("--Cost for each User--");
+            Console.WriteLine("----------------------");
+
+            decimal totalCost = 0;
+
+            foreach (var i in Expenses)
+            {
+                totalCost += i.Amount;
+            }
+            decimal eachUserShare = totalCost / Users.Count;
+
+            Console.WriteLine($"Cost of {this.Name} for each user is {eachUserShare}");
+
+        }
 
         public void ToSettle()
         {
@@ -140,7 +157,7 @@ namespace ProSE
             owes = owes.OrderByDescending(t => t.Item2).ToList();
 
 
-            // Check This part later!!
+            // An algorithm to see how much needs to be paid for the debts to be settled
             var settledTransactions = new List<(User, User, decimal)>();
             int i = 0;
             int j = 0;
@@ -158,7 +175,10 @@ namespace ProSE
                         i++;
                 }
             }
+            Console.WriteLine("----------------------");
             Console.WriteLine("To settle the debts:");
+            Console.WriteLine("----------------------");
+
             foreach (var trans in settledTransactions)
             {
                 Console.WriteLine("From: " + trans.Item2.Name + "  To: " + trans.Item1.Name + "  Amount: " + trans.Item3);
@@ -195,35 +215,7 @@ namespace ProSE
                 debtMatrix.Add(payment.Payee, payment.Amount);
             }
         }
-    }
 
-    public class UserDebtStatus
-    {
-        public int Id { get; set; }
-        public string UserName { get; set; }
-
-        public decimal DebtStatus { get; set; }
-
-        //public string SetUpName { get; set; }
-
-        public UserDebtStatus(string userName, decimal debtStatus)
-        {
-            UserName = userName;
-
-            DebtStatus = debtStatus;
-        }
-
-        public static UserDebtStatus CreateDebtStatus(KeyValuePair<User, decimal> a)
-        {
-            //string a = Di
-
-            string username = a.Key.Name;
-            decimal debt = a.Value;
-            
-            UserDebtStatus userDebtStatus = new UserDebtStatus(username, debt);
-            return userDebtStatus;
-            
-        }
 
     }
 }
