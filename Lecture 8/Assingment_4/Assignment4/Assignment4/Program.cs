@@ -57,7 +57,7 @@ namespace ProSE
             users.Add(userGeorge);
             users.Add(userRingo);
 
-            // • Create Setup
+            // • Create Setup (kitty)
             SetUp hamburgSetup = new SetUp("Hamburg", users);
 
             //• Create Expense / Add Expense
@@ -71,13 +71,6 @@ namespace ProSE
             hamburgSetup.AddExpense(hotelExpense);
             hamburgSetup.AddExpense(beers);
             hamburgSetup.AddExpense(guitars);
-
-            foreach (var a in hamburgSetup.debtMatrix)
-            {
-                Console.WriteLine(a.Key.Name);
-                Console.WriteLine(a.Value);
-            }
-
              
             // • CurrentStatus(Current Debt Status, who owes who and how much...)
 
@@ -89,6 +82,9 @@ namespace ProSE
             //• To Settle(Which user needs to pay how much to whom in order to settle the debts)
 
             hamburgSetup.ToSettle();
+
+
+            // • Create Payment / Add Payment
 
             SetUp.Payment georgePayment = new SetUp.Payment(userJohn, userPaul, 1100);
             SetUp.Payment georgePayment2 = new SetUp.Payment(userRingo, userPaul, 1000);
@@ -102,17 +98,23 @@ namespace ProSE
             Console.WriteLine("---After payments----");
             Console.WriteLine("---------------------");
 
+            // Status after the payments
             hamburgSetup.ToSettle();
 
+            // another expense to see if the status updates itself
             SetUp.Expense schnitzel = new SetUp.Expense("Schnitzel", 900, userRingo);
             hamburgSetup.AddExpense(schnitzel);
             Console.WriteLine("---------------------");
             Console.WriteLine("---After schnitzel---");
             Console.WriteLine("---------------------");
 
-
+            // latest status
             hamburgSetup.ToSettle();
+            
+            // total cost of the setup
             hamburgSetup.TotalCost();
+
+            // cost of the setup for each user
             hamburgSetup.CostForEachUser();
 
             
@@ -122,6 +124,8 @@ namespace ProSE
             Console.WriteLine("Final status is written in the database.");
             Console.WriteLine("---------------------");
 
+            // creating a debt status class 
+            // adding debt statuses to the database
             foreach (var i in hamburgSetup.debtMatrix)
             {
                 var userdebtstatus = UserDebtStatus.CreateDebtStatus(i);
