@@ -6,26 +6,32 @@ namespace ProSE
 {
     class MainClass
     {
-        public static void Main(string[] argArray)
+        public static void Main(string[] args)
         {
-            string path = "path-to-image.jpg"; // or png
-            Bitmap originalImage = new Bitmap(path); // import image from path
-            Bitmap newImage = new Bitmap(originalImage); // create a new image with the same dimensions as originalImage
+            // taking all the pictures
+            // add them all to a list
+            List<ImageContainer> imageContainers = new List<ImageContainer>()
+            {
+                new ImageContainer(("image1.jpg")),
+                new ImageContainer(("image2.jpg")),
+                new ImageContainer(("image3.jpg")),
+                new ImageContainer(("image4.jpg")),
+                new ImageContainer(("image5.jpg"))
+            };
 
-            // change blue and green to 0
-            for (int x = 0; x < originalImage.Width; x++)
-            { // x here is the horizontal index of pixel
-                for (int y = 0; y < originalImage.Height; y++)
-                { // y here is the vertical index of pixel
-                    Color pixelColor = originalImage.GetPixel(x, y);
-                    int redValue = Convert.ToInt32(pixelColor.R); // you can do the same for blue and green since all color values range from 0 to 255
+            // starting threads and initializing the method
 
-                    Color newColor = Color.FromArgb(redValue, 0, 0);
-                    newImage.SetPixel(x, y, newColor);
-                }
+            foreach (var i in imageContainers)
+            {
+                new Thread(i.ProcessImage).Start();
+
             }
-            // export newImage
-            newImage.Save(newPath);
 
+            
+            // corrected images will be exported in to the bin/Debug/net6.0 folder
+            // with corrected_ prefix
+    
         }
+
     }
+}
