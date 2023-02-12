@@ -8,14 +8,14 @@ namespace QuickSortProgram
     {
         static void Main(string[] args)
         {
-            //Test the integer List QuickSort extension method
+            //Integer List QuickSort
             List<int> integerList = new List<int> { 3, 5, 2, 1, 4 };
             List<int> sortedIntegerList = integerList.QuickSort();
             Console.WriteLine("Sorted Integer List: ");
             sortedIntegerList.PrintList();
 
-            //Test the generic List QuickSort extension method
-            List<double> doubleList = new List<double> { 3.5, 2.1, 4.9, 1.2, 5.6 };
+            //Generic List Quicksort
+            List<double> doubleList = new List<double> { 3.5, 2.1, -4.9, -1.2, 5.6 };
             List<double> sortedDoubleList = doubleList.QuickSort((a, b) => a.CompareTo(b));
             Console.WriteLine("\nSorted Double List: ");
             sortedDoubleList.PrintList();
@@ -36,7 +36,9 @@ namespace QuickSortProgram
             List<int> lower = list.Where(x => x < pivot).ToList();
             List<int> higher = list.Where(x => x > pivot).ToList();
 
-            return QuickSort(lower).Concat(new List<int> { pivot }).Concat(QuickSort(higher)).ToList();
+            List<int> sortedList = QuickSort(lower).Concat(new List<int> { pivot }).Concat(QuickSort(higher)).ToList();
+
+            return sortedList;
         }
 
         //Generalized implementation of QuickSort that takes a generic List<T> and a Comparison<T> delegate
@@ -49,7 +51,9 @@ namespace QuickSortProgram
             List<T> lower = list.Where(x => comparison(x, pivot) < 0).ToList();
             List<T> higher = list.Where(x => comparison(x, pivot) > 0).ToList();
 
-            return QuickSort(lower, comparison).Concat(new List<T> { pivot }).Concat(QuickSort(higher, comparison)).ToList();
+            List<T> sortedList = QuickSort(lower, comparison).Concat(new List<T> { pivot }).Concat(QuickSort(higher, comparison)).ToList();
+
+            return sortedList;
         }
 
         //Extension method for printing elements of a generic list to the console
@@ -60,5 +64,6 @@ namespace QuickSortProgram
                 Console.WriteLine(item);
             }
         }
+        
     }
 }

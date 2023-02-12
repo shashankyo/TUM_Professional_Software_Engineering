@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment6_SecondTake", "Assignment6_SecondTake\Assignment6_SecondTake.csproj", "{2A7F07B0-CB57-4A32-9DF0-D3FE08E0C7FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Assignment6_Quicksort", "Assignment6_SecondTake\Assignment6_Quicksort.csproj", "{2A7F07B0-CB57-4A32-9DF0-D3FE08E0C7FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
