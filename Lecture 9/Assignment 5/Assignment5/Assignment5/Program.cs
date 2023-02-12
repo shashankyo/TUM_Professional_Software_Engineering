@@ -8,8 +8,8 @@ namespace ProSE
     {
         public static void Main(string[] args)
         {
-            // taking all the pictures
-            // add them all to a list
+            // take all the pictures
+            // add them to a list
             List<ImageContainer> imageContainers = new List<ImageContainer>()
             {
                 new ImageContainer(("image1.jpg")),
@@ -24,10 +24,7 @@ namespace ProSE
             foreach (var i in imageContainers)
             {
                 new Thread(i.ProcessImage).Start();
-
             }
-
-            
             // corrected images will be exported in to the bin/Debug/net6.0 folder
             // with corrected_ prefix
     

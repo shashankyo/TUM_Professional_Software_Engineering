@@ -138,7 +138,6 @@ namespace ProSE
                     }
                 }
                 string newPath = $"corrected_{this.originalFilePath}";
-
                 newImage.Save(newPath); // export newImage
                 this.correctedImage = newImage;
                 Console.WriteLine($"Thread {Thread.CurrentThread.ManagedThreadId} completed ...");
